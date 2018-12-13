@@ -23,3 +23,4 @@ Route::post('/glists', 'GlistsController@store');
 
 Route::post('/glists/{glist}/task', 'TasksController@store');
 Route::patch('/tasks/{task}', 'TasksController@update');
+Route::delete('/tasks', 'TasksController@destroy');

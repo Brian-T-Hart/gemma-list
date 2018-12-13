@@ -31,4 +31,14 @@ class TasksController extends Controller
         return back();
 
     }
+
+    public function destroy() {
+
+        $tasks = Task::with(['Glist' => function($query) {
+            $query->where(['user_id' => auth()->user()]);
+        }])->where(['completed' => 1])->delete();
+
+        return back();
+
+    }
 }
