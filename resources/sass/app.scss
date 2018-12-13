@@ -12,3 +12,25 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+// glist css
+
+body {
+  box-sizing: border-box;
+}
+
+#main-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  
+}
+
+.is-completed {
+  text-decoration: line-through;
+}
+
+.list-container {
+  min-width: 300px;
+}
