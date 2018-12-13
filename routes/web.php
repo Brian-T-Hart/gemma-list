@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/glists', 'GlistsController@store');
+
+Route::post('/glists/{glist}/task', 'TasksController@store');
+Route::patch('/tasks/{task}', 'TasksController@update');
