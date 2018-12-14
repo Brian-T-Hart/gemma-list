@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Glist;
 
-class GlistsController extends Controller
-{
+class GlistsController extends Controller {
+	
+	public function __construct() {
+
+		$this->middleware('auth');
+
+    }
+
     public function store() {
 
 		$attributes = $this->validateGlist();
@@ -18,7 +24,15 @@ class GlistsController extends Controller
 
 		return back();
 
-    }
+	}
+	
+	public function destroy(Glist $glist) {
+
+		$glist->delete();
+
+		return back();
+
+	}
     
     public function validateGlist() {
 
@@ -29,4 +43,5 @@ class GlistsController extends Controller
         ]);
 
 	}
+
 }

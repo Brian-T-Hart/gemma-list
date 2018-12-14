@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/glists', 'GlistsController@store');
+Route::delete('/glists/{glist}/delete', 'GlistsController@destroy');
 
 Route::post('/glists/{glist}/task', 'TasksController@store');
 Route::patch('/tasks/{task}', 'TasksController@update');
