@@ -34,7 +34,36 @@
 
         <div class="list-container">
         
-            <h2 class="list-name mb-1">{{ $glist->name }}</h2>
+            <div class="list-header">
+                
+                <h2 class="list-name mb-1">{{ $glist->name }}</h2>
+
+                <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                    <a class="dropdown-item" href="#">Edit List</a>
+
+                    <a class="dropdown-item" href="#">Hide List</a>
+
+                    <form method="POST" action="/glists/{{ $glist->id }}/delete">
+
+                        @method('DELETE')
+
+                        @csrf
+
+                        <button class="dropdown-item" type="submit">Delete List</button>
+
+                        <!-- <a class="dropdown-item" href="#">Delete List</a> -->
+
+                    </form>
+
+                </div>
+
+                <div class="dropdown"></div>
+                
+            </div>
+            
 
             <div class="add-task-container mb-2">
 
