@@ -20,6 +20,7 @@ class CreateGlistsTable extends Migration
             $table->boolean('archived')->default(0);
             $table->unsignedInteger('user_id');
             $table->timestamps();
+            $table->onDelete('cascade');
         });
     }
 
