@@ -19,6 +19,8 @@ class CreateTasksTable extends Migration
             $table->unsignedInteger('glist_id');
             $table->boolean('completed')->default(0);
             $table->timestamps();
+
+            $table->foreign('glist_id')->references('id')->on('glists')->onDelete('cascade');
         });
     }
 

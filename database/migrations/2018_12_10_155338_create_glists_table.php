@@ -20,7 +20,8 @@ class CreateGlistsTable extends Migration
             $table->boolean('archived')->default(0);
             $table->unsignedInteger('user_id');
             $table->timestamps();
-            $table->onDelete('cascade');
+            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
