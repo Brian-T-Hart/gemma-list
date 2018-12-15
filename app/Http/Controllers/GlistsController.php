@@ -28,6 +28,10 @@ class GlistsController extends Controller {
 	
 	public function destroy(Glist $glist) {
 
+		// abort_if($glist->user_id !== auth()->id(), 403);
+
+		$this->authorize('delete', $glist);
+
 		$glist->delete();
 
 		return back();
