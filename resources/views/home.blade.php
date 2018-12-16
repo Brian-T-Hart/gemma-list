@@ -44,8 +44,6 @@
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                        <!-- <a class="dropdown-item" href="#">Edit List</a> -->
-
                         <button class="dropdown-item edit-glist-btn" data-id="{{ $glist->id }}">Edit List</button>
 
                         <a class="dropdown-item" href="#">Hide List</a>
@@ -76,6 +74,8 @@
                         <input name="name" type="text" value="{{ $glist->name }}">
 
                         <button type="submit">update</button>
+
+                        <button id="close-edit-{{ $glist->id }}">x</button>
                         
                     </form>
 
