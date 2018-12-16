@@ -6,6 +6,8 @@
 
     <aside class="col-md-3 side-bar">
 
+        @include('errors')
+
         <form method="POST" action="/glists">
 
             @csrf
