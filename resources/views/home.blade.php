@@ -12,7 +12,9 @@
 
             @csrf
             
-            <input name="name" type="text" value="{{ old('name') }}" placeholder="add new list" required>
+            <h2>Create List</h2>
+
+            <input name="name" type="text" value="{{ old('name') }}" placeholder="add a new list" required>
             
             <button class="button" type="submit">+</button>
 
