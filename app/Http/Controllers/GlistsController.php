@@ -52,7 +52,7 @@ class GlistsController extends Controller {
 
 		return request()->validate([
 
-            'name' => ['required', 'min:3']
+            'name' => ['required', 'min:3', 'max:20']
             
         ]);
 
