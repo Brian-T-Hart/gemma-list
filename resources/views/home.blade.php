@@ -36,34 +36,52 @@
         
             <div class="list-header">
                 
-                <h2 class="list-name mb-1">{{ $glist->name }}</h2>
+                <div class="glist-header" id="glist-header-{{ $glist->id }}">
 
-                <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                    <h2 class="list-name mb-1">{{ $glist->name }}</h2>
+
+                    <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                        <!-- <a class="dropdown-item" href="#">Edit List</a> -->
+
+                        <button class="dropdown-item edit-glist-btn" data-id="{{ $glist->id }}">Edit List</button>
+
+                        <a class="dropdown-item" href="#">Hide List</a>
+
+                        <form method="POST" action="/glists/{{ $glist->id }}/delete">
+
+                            @method('DELETE')
+
+                            @csrf
+
+                            <button class="dropdown-item" type="submit">Delete List</button>
+
+                        </form>
+
+                    </div>
+
+                    <div class="dropdown"></div>
                 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                </div>
 
-                    <a class="dropdown-item" href="#">Edit List</a>
+                <div class="edit-glist mb-2 mt-2 hidden" id="edit-glist-{{ $glist->id }}">
 
-                    <a class="dropdown-item" href="#">Hide List</a>
-
-                    <form method="POST" action="/glists/{{ $glist->id }}/delete">
-
-                        @method('DELETE')
-
+                    <form class="edit-glist-form" method="POST" action="/glists/{{ $glist->id }}">
+                    
                         @csrf
+                        @method('PATCH')
 
-                        <button class="dropdown-item" type="submit">Delete List</button>
+                        <input name="name" type="text" value="{{ $glist->name }}">
 
-                        <!-- <a class="dropdown-item" href="#">Delete List</a> -->
-
+                        <button type="submit">update</button>
+                        
                     </form>
 
                 </div>
-
-                <div class="dropdown"></div>
                 
             </div>
-            
 
             <div class="add-task-container mb-2">
 
@@ -72,7 +90,7 @@
                     @csrf
 
                     <input class="add-task-input" type="text" name="title" placeholder="Add Task" required>
-                        
+
                     <button class="button" type="submit">+</button>
 
                 </form>

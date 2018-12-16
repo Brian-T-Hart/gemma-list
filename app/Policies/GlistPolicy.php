@@ -42,7 +42,7 @@ class GlistPolicy
      */
     public function update(User $user, Glist $glist)
     {
-        //
+        return $glist->user_id == $user->id;
     }
 
     /**

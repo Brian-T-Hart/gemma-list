@@ -25,10 +25,20 @@ class GlistsController extends Controller {
 		return back();
 
 	}
+
+	public function update(Glist $glist) {
+
+		$this->authorize('update', $glist);
+
+		$attributes = $this->validateGlist();
+
+		Glist::where('id', $glist->id)->update($attributes);
+
+		return back();
+
+	}
 	
 	public function destroy(Glist $glist) {
-
-		// abort_if($glist->user_id !== auth()->id(), 403);
 
 		$this->authorize('delete', $glist);
 
