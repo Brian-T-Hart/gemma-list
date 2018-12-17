@@ -8,11 +8,11 @@
 
         @include('errors')
 
-        <form method="POST" action="/glists">
+        <form action="/glists" class="font-small" method="POST">
 
             @csrf
             
-            <h2>Create List</h2>
+            <h2 class="mb-1 text-success">Create List</h2>
 
             <input name="name" type="text" value="{{ old('name') }}" placeholder="add a new list" required>
             
@@ -26,7 +26,7 @@
     
             @csrf
             
-            <button class="button mt-3" type="submit">Delete Completed</button>
+            <button class="btn-danger font-small mt-3" type="submit">Delete Completed</button>
 
         </form>
 
@@ -70,7 +70,7 @@
 
                 <div class="edit-glist mb-2 mt-2 hidden" id="edit-glist-{{ $glist->id }}">
 
-                    <form class="edit-glist-form" method="POST" action="/glists/{{ $glist->id }}">
+                    <form class="edit-glist-form font-small" method="POST" action="/glists/{{ $glist->id }}">
                     
                         @csrf
                         @method('PATCH')
@@ -89,7 +89,7 @@
 
             <div class="add-task-container mb-2">
 
-                <form class="add-task-form" method="POST" action="/glists/{{ $glist->id }}/task">
+                <form class="add-task-form font-small" method="POST" action="/glists/{{ $glist->id }}/task">
 
                     @csrf
 
@@ -119,8 +119,6 @@
                     </label>
 
                 </form>
-                
-                <!-- <h4 class="task">{{$task->title}}</h4> -->
 
                 @endforeach
             

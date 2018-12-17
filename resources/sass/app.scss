@@ -19,8 +19,24 @@ body {
   box-sizing: border-box;
 }
 
-.add-task-form {
+h2 {
+  font-size: 26px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input {
+  padding-left: 5px;
+}
+
+.font-small {
   font-size: 12px;
+}
+
+.hidden {
+  display: none;
 }
 
 .is-completed {
@@ -29,12 +45,22 @@ body {
 
 .list-container {
   margin-bottom: 20px;
-  width: 300px;
+  width: 33.33%;
+  min-width: 225px;
 }
 
 .lists-container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.list-name {
+  display: inline-block;
+  opacity: 0.8;
+}
+
+.main-container {
+  max-width: 1140px;
 }
 
 .side {
