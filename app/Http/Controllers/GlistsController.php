@@ -37,6 +37,18 @@ class GlistsController extends Controller {
 		return back();
 
 	}
+
+	public function archive(Glist $glist) {
+
+		$this->authorize('update', $glist);
+
+		$archived = $glist->archived == 1 ? 0 : 1;
+
+		Glist::where('id', $glist->id)->update(['archived'=>$archived]);
+
+		return back();
+
+	}
 	
 	public function destroy(Glist $glist) {
 

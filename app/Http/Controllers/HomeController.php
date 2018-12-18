@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $glists = Glist::where(['user_id' => auth()->id(), 'archived' => 0])->with('tasks')->get();
+        $glists = Glist::where(['user_id' => auth()->id()])->with('tasks')->get();
 
         return view('home', compact('glists'));
 

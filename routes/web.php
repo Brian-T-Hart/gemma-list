@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/glists', 'GlistsController@store');
 Route::delete('/glists/{glist}/delete', 'GlistsController@destroy');
 Route::patch('/glists/{glist}', 'GlistsController@update');
+Route::patch('/glists/{glist}/archive', 'GlistsController@archive');
 
 Route::post('/glists/{glist}/task', 'TasksController@store');
 Route::patch('/tasks/{task}', 'TasksController@update');
