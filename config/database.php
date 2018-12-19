@@ -1,5 +1,28 @@
 <?php
 
+$prod_url = getenv("JAWSDB_URL");
+
+if ($prod_url) {
+
+    $url = parse_url($prod_url);
+
+    // $host = $url["host"];
+    // $username = $url["user"];
+    // $password = $url["pass"];
+    // $database = substr($url["path"], 1);
+
+    print_r('production-------------------------------------');
+
+    print_r($url);
+
+}
+
+else {
+
+    print_r('local----------------------------');
+
+}
+
 return [
 
     /*
@@ -42,10 +65,10 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', ''),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
+            'database' => env('DB_DATABASE', ''),
+            'username' => env('DB_USERNAME', ''),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
