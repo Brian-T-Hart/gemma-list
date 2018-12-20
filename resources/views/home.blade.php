@@ -30,7 +30,23 @@
 
         </form>
 
-        <div class="archived-container mt-5">
+        <?php $glistCount = 0 ?>
+
+            @foreach ($glists as $x)
+
+                @if ($x->archived)
+
+                    <?php
+
+                        $glistCount += 1;
+                    
+                    ?>
+
+                @endif
+
+            @endforeach
+
+        <div class="archived-container mt-5 {{ $glistCount == 0 ? 'hidden' : null }}">
         
             <h4 class="archived-header">Archived Glists</h4>
 
