@@ -9,14 +9,60 @@
 @import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
-  background-color: #fff;
+  background-color: #FFF;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 // glist css
 
-body {
+html, body {
+  background-color: #FFF;
   box-sizing: border-box;
+  color: #636B6F;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.true-center {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow: auto;
+  position: relative;
+  top: -60px;
+}
+
+nav {
+  z-index: 100;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.title {
+  font-size: 84px;
+}
+
+.nav-item > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .1rem;
+  text-decoration: none;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
 }
 
 h2 {
@@ -57,10 +103,6 @@ input {
 .list-name {
   display: inline-block;
   opacity: 0.8;
-}
-
-.main-container {
-  max-width: 1140px;
 }
 
 .side {
