@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row pt-4">
+<div class="full-height home-container row">
 
     <aside class="col-md-3 side-bar">
 
