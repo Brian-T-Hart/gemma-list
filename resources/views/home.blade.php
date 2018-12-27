@@ -85,7 +85,11 @@
 
                             <h2 class="list-name mb-1">{{ $glist->name }}</h2>
 
-                            <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                            <a class="glist-dropdown-btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                
+                                <span class="caret"></span>
+
+                            </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 

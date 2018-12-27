@@ -10503,6 +10503,16 @@ nav {
   height: 100vh;
 }
 
+.glist-dropdown-btn {
+  color: #636B6F;
+  display: inline;
+  padding-left: 0;
+}
+
+.glist-dropdown-btn:hover {
+  color: #636B6F;
+}
+
 .hidden {
   display: none;
 }
