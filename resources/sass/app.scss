@@ -110,6 +110,10 @@ nav {
 
 .title {
   font-size: 84px;
+
+  @media (max-width: 575.98px) {
+    font-size: 48px;
+  }
 }
 
 .true-center {
