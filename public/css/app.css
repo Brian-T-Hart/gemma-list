@@ -10483,6 +10483,11 @@ button:hover {
   cursor: pointer;
 }
 
+form:focus,
+.dropdown-item:focus {
+  outline: none;
+}
+
 h2 {
   font-size: 26px;
 }
