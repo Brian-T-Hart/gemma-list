@@ -28,7 +28,7 @@ class TasksController extends Controller
 
         $task->complete(request()->has('completed'));
 
-        return back();
+        return $task;
 
     }
 

@@ -164,7 +164,7 @@
 
                                 <label for="completed" class="checkbox {{ $task->completed ? 'is-completed' : '' }}">
 
-                                <input type="checkbox" name="completed" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
+                                <input type="checkbox" name="completed" onChange="handleCheck()" {{ $task->completed ? 'checked' : '' }}>
 
                                 {{ $task->title }}
 

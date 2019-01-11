@@ -36018,6 +36018,26 @@ for (var i = 0; i < editGlistBtn.length; i++) {
 		});
 }
 
+handleCheck = function handleCheck() {
+		event.preventDefault();
+		var checkboxLabel = event.target.parentElement;
+		var taskForm = event.target.parentElement.parentElement;
+		var url = taskForm.getAttribute('action');
+
+		$.ajax({
+				url: url,
+				type: 'post',
+				data: $(taskForm).serialize(),
+				dataType: 'json',
+				success: function success(_response) {
+						$(checkboxLabel).toggleClass('is-completed');
+				},
+				error: function error(_response) {
+						alert('Something went wrong. Please try again!');
+				}
+		});
+};
+
 /***/ }),
 /* 37 */
 /***/ (function(module, exports) {

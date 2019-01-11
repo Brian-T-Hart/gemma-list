@@ -35,3 +35,23 @@ for (var i = 0; i < editGlistBtn.length; i++) {
 	})
 
 }
+
+handleCheck = () => {
+	event.preventDefault();
+	var checkboxLabel = event.target.parentElement;
+	var taskForm = event.target.parentElement.parentElement;
+	var url = taskForm.getAttribute('action');
+
+	$.ajax({
+        url: url,
+        type: 'post',
+        data: $(taskForm).serialize(),
+        dataType: 'json',
+        success: function( _response ){
+			$(checkboxLabel).toggleClass('is-completed');
+        },
+        error: function( _response ){
+          alert('Something went wrong. Please try again!');
+        }
+    });
+}
