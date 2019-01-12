@@ -12,7 +12,7 @@
 
             @csrf
             
-            <h2 class="mb-1 text-success">Create List</h2>
+            <h3 class="mb-1 text-success">Create List</h3>
 
             <input name="name" type="text" value="{{ old('name') }}" placeholder="add a new list" required>
             
@@ -26,7 +26,7 @@
     
             @csrf
             
-            <button class="btn-danger font-small mt-3" type="submit">Delete Completed</button>
+            <button class="btn btn-danger font-small mt-3" type="submit"><i class="far fa-trash-alt"></i> Completed</button>
 
         </form>
 
