@@ -48,7 +48,7 @@
 
         <div class="archived-container mt-5 {{ $glistCount == 0 ? 'hidden' : null }}">
         
-            <h4 class="archived-header">Archived Glists</h4>
+            <h4 class="archived-header">Archived Lists</h4>
 
             @foreach ($glists as $glist)
 
