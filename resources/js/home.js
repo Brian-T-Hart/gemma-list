@@ -41,6 +41,7 @@ handleCheck = () => {
 	var checkboxLabel = event.target.parentElement;
 	var taskForm = event.target.parentElement.parentElement;
 	var url = taskForm.getAttribute('action');
+	$(checkboxLabel).toggleClass('is-completed');
 
 	$.ajax({
         url: url,
@@ -48,10 +49,11 @@ handleCheck = () => {
         data: $(taskForm).serialize(),
         dataType: 'json',
         success: function( _response ){
-			$(checkboxLabel).toggleClass('is-completed');
+			console.log('update successful');
         },
         error: function( _response ){
-          alert('Something went wrong. Please try again!');
+		  alert('Something went wrong. Please try again!');
+		  window.location.reload();
         }
     });
 }

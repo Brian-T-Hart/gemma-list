@@ -36023,6 +36023,7 @@ handleCheck = function handleCheck() {
 		var checkboxLabel = event.target.parentElement;
 		var taskForm = event.target.parentElement.parentElement;
 		var url = taskForm.getAttribute('action');
+		$(checkboxLabel).toggleClass('is-completed');
 
 		$.ajax({
 				url: url,
@@ -36030,10 +36031,11 @@ handleCheck = function handleCheck() {
 				data: $(taskForm).serialize(),
 				dataType: 'json',
 				success: function success(_response) {
-						$(checkboxLabel).toggleClass('is-completed');
+						console.log('update successful');
 				},
 				error: function error(_response) {
 						alert('Something went wrong. Please try again!');
+						window.location.reload();
 				}
 		});
 };
