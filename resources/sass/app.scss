@@ -11,7 +11,7 @@
 html, body {
   background-color: #FFF;
   box-sizing: border-box;
-  color: #636B6F;
+  color: $grey;
   font-family: 'Nunito', sans-serif;
   font-weight: 200;
   height: 100vh;
@@ -44,12 +44,12 @@ nav {
 }
 
 .glist-dropdown-btn {
-  color: #636B6F;
+  color: $grey;
   display: inline;
   padding-left: 0;
 
   &:hover {
-    color: #636B6F;
+    color: $grey;
   }
 }
 
@@ -76,6 +76,7 @@ nav {
 }
 
 .list-name {
+  color: $grey;
   display: inline-block;
   opacity: 0.8;
 }
@@ -96,7 +97,7 @@ nav {
 }
 
 .nav-item > a {
-  color: #636b6f;
+  color: $grey;
   padding: 0 25px;
   font-size: 13px;
   font-weight: 600;
@@ -110,6 +111,21 @@ nav {
 
 .side-bar {
   padding-top: 20px;
+
+  .archived-header {
+    color: $grey;
+    opacity: 0.8;
+  }
+
+  .archived-item {
+    color: $grey;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+  }
+
+  .sidebar-header {
+    color: $lightseagreen;
+  }
 }
 
 .task-container {

@@ -10537,6 +10537,7 @@ nav {
 }
 
 .list-name {
+  color: #636B6F;
   display: inline-block;
   opacity: 0.8;
 }
@@ -10562,7 +10563,7 @@ nav {
 }
 
 .nav-item > a {
-  color: #636b6f;
+  color: #636B6F;
   padding: 0 25px;
   font-size: 13px;
   font-weight: 600;
@@ -10576,6 +10577,21 @@ nav {
 
 .side-bar {
   padding-top: 20px;
+}
+
+.side-bar .archived-header {
+  color: #636B6F;
+  opacity: 0.8;
+}
+
+.side-bar .archived-item {
+  color: #636B6F;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+}
+
+.side-bar .sidebar-header {
+  color: #20B2AA;
 }
 
 .task-container {

@@ -12,7 +12,7 @@
 
             @csrf
             
-            <h3 class="mb-1 text-success">Create List</h3>
+            <h3 class="sidebar-header mb-1">Create List</h3>
 
             <input name="name" type="text" value="{{ old('name') }}" placeholder="add a new list" required>
             
@@ -26,7 +26,7 @@
     
             @csrf
             
-            <button class="btn btn-danger font-small mt-3" type="submit"><i class="far fa-trash-alt"></i> Completed</button>
+            <button class="btn btn-light font-small mt-3" type="submit"><i class="far fa-trash-alt"></i> Completed</button>
 
         </form>
 
@@ -59,7 +59,7 @@
                         @csrf
                         @method('PATCH')
 
-                        <button class="dropdown-item" type="submit">{{ $glist->name }}</button>
+                        <button class="archived-item dropdown-item pl-3" type="submit">{{ $glist->name }}</button>
                             
                     </form>
 
