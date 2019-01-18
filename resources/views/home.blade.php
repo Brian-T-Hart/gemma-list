@@ -83,7 +83,7 @@
                         
                         <div class="glist-header" id="glist-header-{{ $glist->id }}">
 
-                            <h2 class="list-name mb-1">{{ $glist->name }}</h2>
+                            <h3 class="list-name mb-1">{{ $glist->name }}</h3>
 
                             <a class="glist-dropdown-btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 
