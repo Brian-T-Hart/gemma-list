@@ -4,7 +4,7 @@
 
 <div class="full-height home-container row">
 
-    <aside class="col-md-3 side-bar">
+    <aside class="col-md-3 col-sm-6 side-bar">
 
         @include('errors')
 
@@ -75,7 +75,7 @@
 
     </aside>
 
-    <div class="col-md-9 lists-container">
+    <div class="col-md-9 col-sm-6 lists-container">
     
         @foreach ($glists as $glist)
 
