@@ -10579,8 +10579,31 @@ nav {
   padding-top: 20px;
 }
 
+.side-bar .archived-container {
+  margin-top: 45px;
+}
+
+.side-bar .archived-container i {
+  display: none;
+}
+
+@media (max-width: 575.98px) {
+  .side-bar .archived-container i {
+    cursor: pointer;
+    display: inline;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .side-bar .archived-container {
+    margin-top: 15px;
+  }
+}
+
 .side-bar .archived-header {
   color: #636B6F;
+  display: inline-block;
+  margin-right: .255em;
   opacity: 0.8;
 }
 
@@ -10588,6 +10611,12 @@ nav {
   color: #636B6F;
   font-family: 'Nunito', sans-serif;
   font-weight: 200;
+}
+
+@media (max-width: 575.98px) {
+  .side-bar #archived-items {
+    display: none;
+  }
 }
 
 .side-bar .sidebar-header {

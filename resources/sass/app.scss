@@ -112,8 +112,27 @@ nav {
 .side-bar {
   padding-top: 20px;
 
+  .archived-container {
+    margin-top: 45px;
+
+    i {
+      display: none;
+  
+      @media (max-width: 575.98px) {
+        cursor: pointer;
+        display: inline;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      margin-top: 15px;
+    }
+  }
+
   .archived-header {
     color: $grey;
+    display: inline-block;
+    margin-right: .255em;
     opacity: 0.8;
   }
 
@@ -121,6 +140,12 @@ nav {
     color: $grey;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
+  }
+
+  #archived-items {
+    @media (max-width: 575.98px) {
+      display: none;
+    }
   }
 
   .sidebar-header {

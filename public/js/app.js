@@ -36040,6 +36040,10 @@ handleCheck = function handleCheck() {
 		});
 };
 
+toggle = function toggle(id) {
+		$(id).toggle();
+};
+
 /***/ }),
 /* 37 */
 /***/ (function(module, exports) {

@@ -46,27 +46,31 @@
 
             @endforeach
 
-        <div class="archived-container mt-5 {{ $glistCount == 0 ? 'hidden' : null }}">
+        <div class="archived-container {{ $glistCount == 0 ? 'hidden' : null }}">
         
-            <h4 class="archived-header">Archived Lists</h4>
+            <h4 class="archived-header">Archived Lists</h4><i class="fas fa-caret-down" onClick="toggle('#archived-items')"></i>
 
-            @foreach ($glists as $glist)
+            <div id="archived-items">
 
-                @if ($glist->archived)
+                @foreach ($glists as $glist)
 
-                    <form class="un-archive" method="POST" action="/glists/{{ $glist->id }}/archive">
+                    @if ($glist->archived)
+
+                        <form class="un-archive" method="POST" action="/glists/{{ $glist->id }}/archive">
+                                    
+                            @csrf
+                            @method('PATCH')
+
+                            <button class="archived-item dropdown-item pl-3" type="submit">{{ $glist->name }}</button>
                                 
-                        @csrf
-                        @method('PATCH')
+                        </form>
 
-                        <button class="archived-item dropdown-item pl-3" type="submit">{{ $glist->name }}</button>
-                            
-                    </form>
+                    @endif
 
-                @endif
-
-            @endforeach
+                @endforeach
         
+            </div>
+
         </div>
 
     </aside>

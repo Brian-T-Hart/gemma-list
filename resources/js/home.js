@@ -57,3 +57,7 @@ handleCheck = () => {
         }
     });
 }
+
+toggle = (id) => {
+	$(id).toggle();
+}
