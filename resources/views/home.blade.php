@@ -81,7 +81,7 @@
 
             @if (!$glist->archived)
 
-                <div class="list-container">
+                <div class="list-container" id="glist-container-{{ $glist->id }}">
                 
                     <div class="list-header">
                         
@@ -114,7 +114,7 @@
 
                                     @csrf
 
-                                    <button class="dropdown-item" type="submit">Delete List</button>
+                                    <button class="dropdown-item" onclick="handleDelete({{$glist->id}})" type="submit">Delete List</button>
 
                                 </form>
 

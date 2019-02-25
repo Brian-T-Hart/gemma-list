@@ -56,7 +56,7 @@ class GlistsController extends Controller {
 
 		$glist->delete();
 
-		return back();
+		return $glist;
 
 	}
     

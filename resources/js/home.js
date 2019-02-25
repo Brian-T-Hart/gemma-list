@@ -37,25 +37,85 @@ for (var i = 0; i < editGlistBtn.length; i++) {
 }
 
 handleCheck = () => {
+
 	event.preventDefault();
+
 	var checkboxLabel = event.target.parentElement;
+
 	var taskForm = event.target.parentElement.parentElement;
+
 	var url = taskForm.getAttribute('action');
+
 	$(checkboxLabel).toggleClass('is-completed');
 
 	$.ajax({
-        url: url,
-        type: 'post',
-        data: $(taskForm).serialize(),
-        dataType: 'json',
+
+		url: url,
+
+		type: 'post',
+		
+		data: $(taskForm).serialize(),
+		
+		dataType: 'json',
+		
         success: function( _response ){
+
 			console.log('update successful');
-        },
+
+		},
+		
         error: function( _response ){
+
 		  alert('Something went wrong. Please try again!');
+
 		  window.location.reload();
-        }
-    });
+
+		}
+		
+	});
+	
+}
+
+handleDelete = (id) => {
+
+	event.preventDefault();
+
+	var deleteForm = event.target.parentElement;
+
+	var url = deleteForm.getAttribute('action');
+
+	var confirmed = confirm('You are about to permanently delete this list.');
+
+	if (confirmed) {
+
+		var el = '#glist-container-' + id;
+
+		toggle(el);
+
+		$.ajax({
+
+			url: url,
+
+			type: 'post',
+
+			data: $(deleteForm).serialize(),
+
+			dataType: 'json',
+
+			success: function(){
+
+				console.log('successfully deleted');
+
+			},
+
+			error: function(){
+
+			  alert('Something went wrong. Please try again!');
+
+			  window.location.reload();
+			}
+		});
+	}
 }
 
 toggle = (id) => {
