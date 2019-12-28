@@ -11,7 +11,7 @@
 html, body {
   background-color: #FFF;
   box-sizing: border-box;
-  color: $grey;
+  color: #222;
   font-family: 'Nunito', sans-serif;
   font-weight: 200;
   height: 100vh;
@@ -19,8 +19,34 @@ html, body {
   overflow: hidden;
 }
 
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #fff;
+}
+
+body {
+  background-image: url(https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-size: cover;
+  background-position: center center;
+}
+
+button.task-add, button.list-add {
+  padding: 0;
+  border: 0;
+  background: white;
+  border-radius: 2px;
+  width: 16px;
+}
+
 button:hover {
   cursor: pointer;
+}
+
+.fas {
+  color: white;
 }
 
 form:focus, .dropdown-item:focus {
@@ -28,19 +54,29 @@ form:focus, .dropdown-item:focus {
 }
 
 input {
+  border-radius: 4px;
+  border-width: 0;
   padding-left: 5px;
+}
+
+label {
+  font-weight: 400;
 }
 
 nav {
   z-index: 100;
 }
 
-.font-small {
-  font-size: 12px;
+.dropdown-menu.show {
+  opacity: 1;
 }
 
-.full-height {
-  height: 100vh;
+.dropdown-item {
+  background-color: #fff;
+}
+
+.font-small {
+  font-size: 12px;
 }
 
 .glist-dropdown-btn {
@@ -61,7 +97,6 @@ nav {
   padding-top: 60px;
   overflow: auto;
   position: relative;
-  top: -60px;
 }
 
 .is-completed {
@@ -69,14 +104,16 @@ nav {
 }
 
 .list-container {
-  margin-bottom: 20px;
-  padding-top: 20px;
-  width: 33.33%;
-  min-width: 225px;
+  background-color: #ccc;
+  border: 1px solid silver;
+  border-radius: 10px;
+  margin: 20px;
+  opacity: 0.9;
+  padding: 20px;
 }
 
 .list-name {
-  color: $grey;
+  color: #222;
   display: inline-block;
   opacity: 0.8;
 }
@@ -85,6 +122,7 @@ nav {
   align-content: start;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .m-b-md {
@@ -92,12 +130,32 @@ nav {
 }
 
 .navbar-laravel {
-  background-color: #FFF;
+  background: rgba(0,0,0,.32);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  padding: 0 16px;
+  position: fixed;
+  width: 100%;
+
+  .navbar-toggler {
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .navbar-toggler-icon {
+    color: #fff;
+  }
+}
+
+.nav-item {
+  @media (max-width: 959.98px) {
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 
 .nav-item > a {
-  color: $grey;
+  color: #fff;
   padding: 0 25px;
   font-size: 13px;
   font-weight: 600;
@@ -160,6 +218,7 @@ nav {
 }
 
 .title {
+  color: #fff;
   font-size: 84px;
 
   @media (max-width: 575.98px) {
@@ -174,5 +233,15 @@ nav {
   justify-content: center;
   overflow: auto;
   position: relative;
-  top: -60px;
+}
+
+#app {
+  height: 100vh;
+  overflow: auto;
+}
+
+#new-list-container.list-container {
+  background-color: transparent;
+  border-width: 0;
+  padding-top: 54px;
 }
