@@ -2,80 +2,10 @@
 
 @section('content')
 
-<div class="full-height home-container row">
+<div class="home-container row">
+    @include('errors')
 
-    <aside class="col-md-3 col-sm-6 side-bar">
-
-        @include('errors')
-
-        <form action="/glists" class="font-small" method="POST">
-
-            @csrf
-            
-            <h3 class="sidebar-header mb-1">Create List</h3>
-
-            <input name="name" type="text" value="{{ old('name') }}" placeholder="add a new list" required>
-            
-            <button class="button" type="submit">+</button>
-
-        </form>
-
-        <form method="POST" action="/tasks">
-
-            @method('DELETE')
-    
-            @csrf
-            
-            <button class="btn btn-light font-small mt-3" type="submit"><i class="far fa-trash-alt"></i> Completed</button>
-
-        </form>
-
-        <?php $glistCount = 0 ?>
-
-            @foreach ($glists as $x)
-
-                @if ($x->archived)
-
-                    <?php
-
-                        $glistCount += 1;
-                    
-                    ?>
-
-                @endif
-
-            @endforeach
-
-        <div class="archived-container {{ $glistCount == 0 ? 'hidden' : null }}">
-        
-            <h4 class="archived-header">Archived Lists</h4><i class="fas fa-caret-down" onClick="toggle('#archived-items')"></i>
-
-            <div id="archived-items">
-
-                @foreach ($glists as $glist)
-
-                    @if ($glist->archived)
-
-                        <form class="un-archive" method="POST" action="/glists/{{ $glist->id }}/archive">
-                                    
-                            @csrf
-                            @method('PATCH')
-
-                            <button class="archived-item dropdown-item pl-3" type="submit">{{ $glist->name }}</button>
-                                
-                        </form>
-
-                    @endif
-
-                @endforeach
-        
-            </div>
-
-        </div>
-
-    </aside>
-
-    <div class="col-md-9 col-sm-6 lists-container">
+    <div class="col-sm-12 lists-container">
     
         @foreach ($glists as $glist)
 
@@ -151,7 +81,7 @@
 
                             <input class="add-task-input" type="text" name="title" placeholder="Add Task" required>
 
-                            <button class="button" type="submit">+</button>
+                            <button class="button task-add" type="submit">+</button>
 
                         </form>
 
@@ -185,6 +115,21 @@
             @endif
 
         @endforeach
+
+        <!-- add new list -->
+        <div id="new-list-container" class="list-container">
+
+            <form action="/glists" class="font-small" method="POST">
+
+                @csrf
+
+                <input name="name" type="text" value="{{ old('name') }}" placeholder="add a new list" required>
+                
+                <button class="button list-add" type="submit">+</button>
+
+            </form>
+        
+        </div> <!-- end add new list -->
 
     </div>
 
