@@ -27,21 +27,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
-    <div class="full-height" id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     GemmaList
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <i class="fas fa-bars"></i>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -50,32 +46,67 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
+
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                            <li class="nav-item">
+                                <!-- <a class="nav-item" href="{{ route('home') }}" title="Home">
+                                    <i class="fas fa-home"></i>
+                                </a> -->
+
+                                <a class="nav-item" href="javascript:document.getElementById('delete-form').submit();" title="Delete Completed Tasks">
+                                    <i class="fas fa-trash-alt"></i>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('home') }}">
-                                        {{ __('Home') }}
-                                    </a>
-                                    
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                <!-- count number of archived lists -->
+                                <?php $glistCount = 0 ?>
+                                @foreach ($glists as $x)
+                                    @if ($x->archived)
+                                    <?php $glistCount += 1; ?>
+                                    @endif
+                                @endforeach <!-- end count -->
+                                
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+                                @if ($glistCount)
+                                <a class="nav-item" href="javascript:toggle('#archived-items');" title="View hidden lists">
+                                    <i class="fas fa-eye-slash"></i>
+                                </a>
+                                @endif
+
+                                <a class="nav-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Logout">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+
+                                <form id="delete-form" method="POST" action="/tasks">
+                                    @method('DELETE')
+                                    @csrf
+                                </form>
+
+                                <!-- archived lists -->
+                                <div class="hidden" id="archived-items">
+                                @foreach ($glists as $glist)
+                                    @if ($glist->archived)
+
+                                        <form class="un-archive" method="POST" action="/glists/{{ $glist->id }}/archive">
+                                                    
+                                            @csrf
+                                            @method('PATCH')
+
+                                            <button class="archived-item dropdown-item pl-3" type="submit">{{ $glist->name }}</button>
+                                                
+                                        </form>
+                                    @endif
+                                @endforeach
+                                </div> <!-- end archived lists -->
+
                             </li>
                         @endguest
                     </ul>
