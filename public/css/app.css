@@ -11961,17 +11961,13 @@ button.task-add,
 button.list-add {
   padding: 0;
   border: 0;
-  background: white;
-  border-radius: 2px;
+  border-radius: 3px;
+  margin-left: 5px;
   width: 16px;
 }
 
 button:hover {
   cursor: pointer;
-}
-
-.fas {
-  color: white;
 }
 
 form:focus,
@@ -11980,13 +11976,15 @@ form:focus,
 }
 
 input {
-  border-radius: 4px;
+  border-radius: 5px;
   border-width: 0;
+  font-size: 16px;
   padding-left: 5px;
 }
 
 label {
   font-weight: 400;
+  margin-bottom: 0.2rem;
 }
 
 nav {
@@ -11999,6 +11997,10 @@ nav {
 
 .dropdown-item {
   background-color: #fff;
+}
+
+.fas {
+  color: white;
 }
 
 .font-small {
@@ -12038,6 +12040,12 @@ nav {
   padding: 20px;
 }
 
+@media (max-width: 575.98px) {
+  .list-container {
+    width: 100%;
+  }
+}
+
 .list-name {
   color: #222;
   display: inline-block;
@@ -12065,7 +12073,7 @@ nav {
   background: rgba(0, 0, 0, 0.32);
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  padding: 0 16px;
+  padding: 10px 16px;
   position: fixed;
   width: 100%;
 }
@@ -12090,8 +12098,8 @@ nav {
 .nav-item > a {
   color: #fff;
   padding: 0 25px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 200;
   letter-spacing: .1rem;
   text-decoration: none;
 }
@@ -12100,56 +12108,7 @@ nav {
   position: relative;
 }
 
-.side-bar {
-  padding-top: 20px;
-}
-
-.side-bar .archived-container {
-  margin-top: 45px;
-}
-
-.side-bar .archived-container i {
-  display: none;
-}
-
-@media (max-width: 575.98px) {
-  .side-bar .archived-container i {
-    cursor: pointer;
-    display: inline;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .side-bar .archived-container {
-    margin-top: 15px;
-  }
-}
-
-.side-bar .archived-header {
-  color: #636B6F;
-  display: inline-block;
-  margin-right: .255em;
-  opacity: 0.8;
-}
-
-.side-bar .archived-item {
-  color: #636B6F;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 200;
-}
-
-@media (max-width: 575.98px) {
-  .side-bar #archived-items {
-    display: none;
-  }
-}
-
-.side-bar .sidebar-header {
-  color: #20B2AA;
-}
-
 .task-container {
-  margin-right: 5em;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -12189,5 +12148,12 @@ nav {
   background-color: transparent;
   border-width: 0;
   padding-top: 54px;
+}
+
+@media (max-width: 575.98px) {
+  #new-list-container.list-container {
+    padding-top: 0;
+    text-align: center;
+  }
 }
 

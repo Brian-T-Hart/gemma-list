@@ -36,8 +36,8 @@ body {
 button.task-add, button.list-add {
   padding: 0;
   border: 0;
-  background: white;
-  border-radius: 2px;
+  border-radius: 3px;
+  margin-left: 5px;
   width: 16px;
 }
 
@@ -45,22 +45,20 @@ button:hover {
   cursor: pointer;
 }
 
-.fas {
-  color: white;
-}
-
 form:focus, .dropdown-item:focus {
   outline:none;
 }
 
 input {
-  border-radius: 4px;
+  border-radius: 5px;
   border-width: 0;
+  font-size: 16px;
   padding-left: 5px;
 }
 
 label {
   font-weight: 400;
+  margin-bottom: 0.2rem;
 }
 
 nav {
@@ -73,6 +71,10 @@ nav {
 
 .dropdown-item {
   background-color: #fff;
+}
+
+.fas {
+  color: white;
 }
 
 .font-small {
@@ -110,6 +112,10 @@ nav {
   margin: 20px;
   opacity: 0.9;
   padding: 20px;
+
+  @media (max-width: 575.98px) {
+    width: 100%;
+  }
 }
 
 .list-name {
@@ -132,7 +138,7 @@ nav {
 .navbar-laravel {
   background: rgba(0,0,0,.32);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  padding: 0 16px;
+  padding: 10px 16px;
   position: fixed;
   width: 100%;
 
@@ -157,8 +163,8 @@ nav {
 .nav-item > a {
   color: #fff;
   padding: 0 25px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 200;
   letter-spacing: .1rem;
   text-decoration: none;
 }
@@ -167,52 +173,7 @@ nav {
   position: relative;
 }
 
-.side-bar {
-  padding-top: 20px;
-
-  .archived-container {
-    margin-top: 45px;
-
-    i {
-      display: none;
-  
-      @media (max-width: 575.98px) {
-        cursor: pointer;
-        display: inline;
-      }
-    }
-
-    @media (max-width: 575.98px) {
-      margin-top: 15px;
-    }
-  }
-
-  .archived-header {
-    color: $grey;
-    display: inline-block;
-    margin-right: .255em;
-    opacity: 0.8;
-  }
-
-  .archived-item {
-    color: $grey;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 200;
-  }
-
-  #archived-items {
-    @media (max-width: 575.98px) {
-      display: none;
-    }
-  }
-
-  .sidebar-header {
-    color: $lightseagreen;
-  }
-}
-
 .task-container {
-  margin-right: 5em;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -244,4 +205,9 @@ nav {
   background-color: transparent;
   border-width: 0;
   padding-top: 54px;
+
+  @media (max-width: 575.98px) {
+    padding-top: 0;
+    text-align: center;
+  }
 }
