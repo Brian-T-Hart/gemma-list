@@ -17,9 +17,9 @@
                         
                         <div class="glist-header" id="glist-header-{{ $glist->id }}">
 
-                            <h3 class="list-name mb-1">{{ $glist->name }}</h3>
-
                             <a class="glist-dropdown-btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                
+                                <h3 class="list-name mb-1">{{ $glist->name }}</h3>
                                 
                                 <span class="caret"></span>
 
