@@ -11959,11 +11959,12 @@ body {
 
 button.task-add,
 button.list-add {
-  padding: 0;
+  background-color: #fff;
   border: 0;
   border-radius: 3px;
+  font-size: 16px;
   margin-left: 5px;
-  width: 16px;
+  opacity: 0.9;
 }
 
 button:hover {
@@ -11999,10 +12000,6 @@ nav {
   background-color: #fff;
 }
 
-.fas {
-  color: white;
-}
-
 .font-small {
   font-size: 12px;
 }
@@ -12015,6 +12012,7 @@ nav {
 
 .glist-dropdown-btn:hover {
   color: #636B6F;
+  text-decoration: none;
 }
 
 .hidden {
