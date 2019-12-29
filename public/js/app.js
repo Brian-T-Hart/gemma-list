@@ -36772,6 +36772,7 @@ module.exports = function spread(callback) {
 /* 35 */
 /***/ (function(module, exports) {
 
+//edit glist event listener
 var editGlistBtn = document.querySelectorAll('.edit-glist-btn');
 
 for (var i = 0; i < editGlistBtn.length; i++) {
@@ -36805,8 +36806,10 @@ for (var i = 0; i < editGlistBtn.length; i++) {
 						glistHeader.classList.remove('hidden');
 				});
 		});
-}
+} //end edit glist
 
+
+// check box
 handleCheck = function handleCheck() {
 
 		event.preventDefault();
@@ -36842,8 +36845,10 @@ handleCheck = function handleCheck() {
 				}
 
 		});
-};
+}; //end check box
 
+
+// Delete a list
 handleDelete = function handleDelete(id) {
 
 		event.preventDefault();
@@ -36883,7 +36888,8 @@ handleDelete = function handleDelete(id) {
 						}
 				});
 		}
-};
+}; //end delete a list
+
 
 toggle = function toggle(id) {
 		$(id).toggle();

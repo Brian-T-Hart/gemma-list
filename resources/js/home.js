@@ -1,3 +1,4 @@
+//edit glist event listener
 var editGlistBtn = document.querySelectorAll('.edit-glist-btn');
 
 for (var i = 0; i < editGlistBtn.length; i++) {
@@ -34,8 +35,10 @@ for (var i = 0; i < editGlistBtn.length; i++) {
 
 	})
 
-}
+}//end edit glist
 
+
+// check box
 handleCheck = () => {
 
 	event.preventDefault();
@@ -74,8 +77,10 @@ handleCheck = () => {
 		
 	});
 	
-}
+}//end check box
 
+
+// Delete a list
 handleDelete = (id) => {
 
 	event.preventDefault();
@@ -116,7 +121,8 @@ handleDelete = (id) => {
 			}
 		});
 	}
-}
+} //end delete a list
+
 
 toggle = (id) => {
 	$(id).toggle();
