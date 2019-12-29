@@ -23,8 +23,9 @@
     <link rel="manifest" href="/site.webmanifest">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -54,12 +55,8 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <!-- <a class="nav-item" href="{{ route('home') }}" title="Home">
-                                    <i class="fas fa-home"></i>
-                                </a> -->
-
                                 <a class="nav-item" href="javascript:document.getElementById('delete-form').submit();" title="Delete Completed Tasks">
-                                    <i class="fas fa-trash-alt"></i>
+                                    <i class="far fa-trash-alt"></i>
                                 </a>
 
                                 <!-- count number of archived lists -->
@@ -73,7 +70,7 @@
 
                                 @if ($glistCount)
                                 <a class="nav-item" href="javascript:toggle('#archived-items');" title="View hidden lists">
-                                    <i class="fas fa-eye-slash"></i>
+                                    <i class="far fa-eye"></i>
                                 </a>
                                 @endif
 
