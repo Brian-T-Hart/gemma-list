@@ -41,4 +41,19 @@ class TasksController extends Controller
         return back();
 
     }
+
+    public function order(Request $request) {
+
+        $ids = json_decode($request->ids);
+
+        foreach ($ids as $key => $value){
+
+            $attributes['order'] = $key;
+
+            $updatedTask = Task::where(['id' => $value])->update($attributes);
+
+          }
+
+        return back();
+    }
 }
