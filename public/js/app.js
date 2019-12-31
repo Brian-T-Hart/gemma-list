@@ -36890,6 +36890,46 @@ handleDelete = function handleDelete(id) {
 		}
 }; //end delete a list
 
+// sortable tasks
+$(function () {
+
+		$(".sortable").sortable();
+
+		$(".sortable").on("sortdeactivate", function (event, ui) {
+
+				console.log(event.target);
+
+				var sortedIDs = $(event.target).sortable("toArray");
+
+				var ids = sortedIDs.map(function (sortedID) {
+						return parseInt(sortedID.split('_')[1]);
+				});
+
+				ids = JSON.stringify(ids);
+
+				console.log(ids);
+
+				$.ajax({
+						headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+						url: '/tasks/reorder',
+						type: 'POST',
+						traditional: true,
+						data: { ids: ids },
+						dataType: 'json',
+						success: function success(data) {
+								console.log('data: ' + data);
+								// console.log('successfully updated');
+						},
+						error: function error(err) {
+								console.log(err);
+								//   alert('Something went wrong. Please try again!');
+								//   window.location.reload();
+						}
+				}); //end Ajax
+		});
+
+		$(".sortable").disableSelection();
+}); //end sortable
 
 toggle = function toggle(id) {
 		$(id).toggle();
