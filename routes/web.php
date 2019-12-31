@@ -25,5 +25,6 @@ Route::patch('/glists/{glist}', 'GlistsController@update');
 Route::patch('/glists/{glist}/archive', 'GlistsController@archive');
 
 Route::post('/glists/{glist}/task', 'TasksController@store');
+Route::post('/tasks/reorder', 'TasksController@order');
 Route::patch('/tasks/{task}', 'TasksController@update');
 Route::delete('/tasks', 'TasksController@destroy');
