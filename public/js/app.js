@@ -36916,14 +36916,12 @@ $(function () {
 						traditional: true,
 						data: { ids: ids },
 						dataType: 'json',
-						success: function success(data) {
-								console.log('data: ' + data);
-								// console.log('successfully updated');
+						success: function success() {
+								console.log('successfully updated');
 						},
-						error: function error(err) {
-								console.log(err);
-								//   alert('Something went wrong. Please try again!');
-								//   window.location.reload();
+						error: function error() {
+								alert('Something went wrong. Please try again!');
+								window.location.reload();
 						}
 				}); //end Ajax
 		});

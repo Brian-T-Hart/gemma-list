@@ -147,14 +147,12 @@ $( function() {
 			traditional: true,
 			data: {ids:ids},
 			dataType: 'json',
-			success: function(data){
-				console.log('data: ' + data);
-				// console.log('successfully updated');
+			success: function(){
+				console.log('successfully updated');
 			},
-			error: function(err){
-				console.log(err);
-			//   alert('Something went wrong. Please try again!');
-			//   window.location.reload();
+			error: function(){
+			  alert('Something went wrong. Please try again!');
+			  window.location.reload();
 			}
 		}); //end Ajax
 	});
