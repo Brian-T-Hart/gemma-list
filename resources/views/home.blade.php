@@ -87,11 +87,11 @@
 
                     </div>
 
-                    <div class="task-container">
+                    <div class="task-container sortable">
                         
-                        @foreach ($glist->tasks as $task)
+                        @foreach ($glist->tasks->sortBy('order') as $task)
 
-                            <form action="/tasks/{{ $task->id }}" method="POST">
+                            <form id="task_{{ $task->id }}" class="ui-state-default" action="/tasks/{{ $task->id }}" method="POST">
 
                                 @method('PATCH')
                                 @csrf
