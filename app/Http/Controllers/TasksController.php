@@ -54,6 +54,9 @@ class TasksController extends Controller
 
           }
 
-        return back();
+          return response()->json([
+            'success' => true,
+            'status' => 200
+        ]);
     }
 }
