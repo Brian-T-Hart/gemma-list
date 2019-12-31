@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $fillable = ['title', 'description', 'completed', 'list_id'];
+    protected $fillable = ['title', 'description', 'completed', 'list_id', 'order'];
 
     public function glist()
 	  {
