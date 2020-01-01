@@ -36777,160 +36777,207 @@ var editGlistBtn = document.querySelectorAll('.edit-glist-btn');
 
 for (var i = 0; i < editGlistBtn.length; i++) {
 
-		editGlistBtn[i].addEventListener('click', function () {
+	editGlistBtn[i].addEventListener('click', function () {
 
-				var glistId = this.getAttribute('data-id');
+		var glistId = this.getAttribute('data-id');
 
-				var headerId = 'glist-header-' + glistId;
+		var headerId = 'glist-header-' + glistId;
 
-				var formId = 'edit-glist-' + glistId;
+		var formId = 'edit-glist-' + glistId;
 
-				var cancelBtnId = 'close-edit-' + glistId;
+		var cancelBtnId = 'close-edit-' + glistId;
 
-				var glistHeader = document.getElementById(headerId);
+		var glistHeader = document.getElementById(headerId);
 
-				var formElement = document.getElementById(formId);
+		var formElement = document.getElementById(formId);
 
-				var cancelBtn = document.getElementById(cancelBtnId);
+		var cancelBtn = document.getElementById(cancelBtnId);
 
-				glistHeader.classList.add('hidden');
+		glistHeader.classList.add('hidden');
 
-				formElement.classList.remove('hidden');
+		formElement.classList.remove('hidden');
 
-				cancelBtn.addEventListener('click', function () {
+		cancelBtn.addEventListener('click', function () {
 
-						event.preventDefault();
+			event.preventDefault();
 
-						formElement.classList.add('hidden');
+			formElement.classList.add('hidden');
 
-						glistHeader.classList.remove('hidden');
-				});
+			glistHeader.classList.remove('hidden');
 		});
+	});
 } //end edit glist
 
 
 // check box
 handleCheck = function handleCheck() {
 
-		event.preventDefault();
+	event.preventDefault();
 
-		var checkboxLabel = event.target.parentElement;
+	var checkboxLabel = event.target.parentElement;
 
-		var taskForm = event.target.parentElement.parentElement;
+	var taskForm = event.target.parentElement.parentElement;
 
-		var url = taskForm.getAttribute('action');
+	var url = taskForm.getAttribute('action');
 
-		$(checkboxLabel).toggleClass('is-completed');
+	$(checkboxLabel).toggleClass('is-completed');
 
-		$.ajax({
+	$.ajax({
 
-				url: url,
+		url: url,
 
-				type: 'post',
+		type: 'post',
 
-				data: $(taskForm).serialize(),
+		data: $(taskForm).serialize(),
 
-				dataType: 'json',
+		dataType: 'json',
 
-				success: function success(_response) {
+		success: function success(_response) {
 
-						console.log('update successful');
-				},
+			console.log('update successful');
+		},
 
-				error: function error(_response) {
+		error: function error(_response) {
 
-						alert('Something went wrong. Please try again!');
+			alert('Something went wrong. Please try again!');
 
-						window.location.reload();
-				}
+			window.location.reload();
+		}
 
-		});
+	});
 }; //end check box
 
 
 // Delete a list
 handleDelete = function handleDelete(id) {
 
-		event.preventDefault();
+	event.preventDefault();
 
-		var deleteForm = event.target.parentElement;
+	var deleteForm = event.target.parentElement;
 
-		var url = deleteForm.getAttribute('action');
+	var url = deleteForm.getAttribute('action');
 
-		var confirmed = confirm('You are about to permanently delete this list.');
+	var confirmed = confirm('You are about to permanently delete this list.');
 
-		if (confirmed) {
+	if (confirmed) {
 
-				var el = '#glist-container-' + id;
+		var el = '#glist-container_' + id;
 
-				toggle(el);
+		toggle(el);
 
-				$.ajax({
+		$.ajax({
 
-						url: url,
+			url: url,
 
-						type: 'post',
+			type: 'post',
 
-						data: $(deleteForm).serialize(),
+			data: $(deleteForm).serialize(),
 
-						dataType: 'json',
+			dataType: 'json',
 
-						success: function success() {
+			success: function success() {
 
-								console.log('successfully deleted');
-						},
+				console.log('successfully deleted');
+			},
 
-						error: function error() {
+			error: function error() {
 
-								alert('Something went wrong. Please try again!');
+				alert('Something went wrong. Please try again!');
 
-								window.location.reload();
-						}
-				});
-		}
+				window.location.reload();
+			}
+		});
+	}
 }; //end delete a list
+
+// sortable lists
+$(function () {
+
+	$(".sortable-lists").sortable();
+
+	$(".sortable-lists").on("sortdeactivate", function (event) {
+
+		console.log('list event.target', event.target);
+
+		if (event.target.id === 'lists-container') {
+
+			var sortedIDs = $(event.target).sortable("toArray");
+
+			var ids = sortedIDs.map(function (sortedID) {
+				return parseInt(sortedID.split('_')[1]);
+			});
+
+			ids.pop();
+
+			ids = JSON.stringify(ids);
+
+			console.log(ids);
+
+			$.ajax({
+				headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+				url: '/glists/reorder',
+				type: 'POST',
+				traditional: true,
+				data: { ids: ids },
+				dataType: 'json',
+				success: function success() {
+					console.log('list successfully updated');
+				},
+				error: function error() {
+					alert('Something went wrong. Please try again!');
+					window.location.reload();
+				}
+			}); //end Ajax
+		} //end if
+	}); //end sortdeactivate
+
+	$(".sortable-lists").disableSelection();
+}); //end sortable-lists
 
 // sortable tasks
 $(function () {
 
-		$(".sortable").sortable();
+	$(".sortable-tasks").sortable();
 
-		$(".sortable").on("sortdeactivate", function (event, ui) {
+	$(".sortable-tasks").on("sortdeactivate", function (event) {
 
-				console.log(event.target);
+		console.log(event.target);
 
-				var sortedIDs = $(event.target).sortable("toArray");
+		if (event.target.id === 'tasks-container') {
 
-				var ids = sortedIDs.map(function (sortedID) {
-						return parseInt(sortedID.split('_')[1]);
-				});
+			var sortedTaskIDs = $(event.target).sortable("toArray");
 
-				ids = JSON.stringify(ids);
+			var taskIds = sortedTaskIDs.map(function (sortedTaskID) {
+				return parseInt(sortedTaskID.split('_')[1]);
+			});
 
-				console.log(ids);
+			taskIds = JSON.stringify(taskIds);
 
-				$.ajax({
-						headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-						url: '/tasks/reorder',
-						type: 'POST',
-						traditional: true,
-						data: { ids: ids },
-						dataType: 'json',
-						success: function success() {
-								console.log('successfully updated');
-						},
-						error: function error() {
-								alert('Something went wrong. Please try again!');
-								window.location.reload();
-						}
-				}); //end Ajax
-		});
+			console.log(taskIds);
 
-		$(".sortable").disableSelection();
-}); //end sortable
+			$.ajax({
+				headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+				url: '/tasks/reorder',
+				type: 'POST',
+				traditional: true,
+				data: { ids: taskIds },
+				dataType: 'json',
+				success: function success() {
+					console.log('task order successfully updated');
+				},
+				error: function error() {
+					alert('Something went wrong. Please try again!');
+					window.location.reload();
+				}
+			}); //end Ajax
+		} //end if
+	}); //end sortdeactivate
+
+	$(".sortable-tasks").disableSelection();
+}); //end sortable-tasks
 
 toggle = function toggle(id) {
-		$(id).toggle();
+	$(id).toggle();
 };
 
 /***/ }),
