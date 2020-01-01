@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Glist extends Model
 {
-	protected $fillable = ['name', 'description', 'archived', 'user_id'];
+	protected $fillable = ['name', 'description', 'archived', 'user_id', 'order'];
 
 	public function user()
 	  {
