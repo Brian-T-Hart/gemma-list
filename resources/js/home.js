@@ -93,7 +93,7 @@ handleDelete = (id) => {
 
 	if (confirmed) {
 
-		var el = '#glist-container-' + id;
+		var el = '#glist-container_' + id;
 
 		toggle(el);
 
@@ -123,42 +123,87 @@ handleDelete = (id) => {
 	}
 } //end delete a list
 
+// sortable lists
+$( function() {
+
+	$( ".sortable-lists" ).sortable();
+
+	$( ".sortable-lists" ).on( "sortdeactivate", function(event) {
+
+		console.log('list event.target', event.target);
+
+		if (event.target.id === 'lists-container') {
+
+			var sortedIDs = $( event.target ).sortable( "toArray" );
+
+			var ids = sortedIDs.map(sortedID => parseInt(sortedID.split('_')[1]));
+
+			ids.pop();
+
+			ids = JSON.stringify(ids);
+
+			console.log(ids);
+
+			$.ajax({
+				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				url: '/glists/reorder',
+				type: 'POST',
+				traditional: true,
+				data: {ids:ids},
+				dataType: 'json',
+				success: function(){
+					console.log('list successfully updated');
+				},
+				error: function(){
+				alert('Something went wrong. Please try again!');
+				window.location.reload();
+				}
+			}); //end Ajax
+		} //end if
+	}); //end sortdeactivate
+	
+	$( ".sortable-lists" ).disableSelection();
+}); //end sortable-lists
+
 // sortable tasks
 $( function() {
 
-	$( ".sortable" ).sortable();
+	$( ".sortable-tasks" ).sortable();
 
-	$( ".sortable" ).on( "sortdeactivate", function(event, ui) {
+	$( ".sortable-tasks" ).on( "sortdeactivate", function(event) {
 
 		console.log(event.target);
 
-		var sortedIDs = $( event.target ).sortable( "toArray" );
+		if (event.target.id === 'tasks-container') {
 
-		var ids = sortedIDs.map(sortedID => parseInt(sortedID.split('_')[1]));
+			var sortedTaskIDs = $( event.target ).sortable( "toArray" );
 
-		ids = JSON.stringify(ids);
+			var taskIds = sortedTaskIDs.map(sortedTaskID => parseInt(sortedTaskID.split('_')[1]));
 
-		console.log(ids);
+			taskIds = JSON.stringify(taskIds);
 
-		$.ajax({
-			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-			url: '/tasks/reorder',
-			type: 'POST',
-			traditional: true,
-			data: {ids:ids},
-			dataType: 'json',
-			success: function(){
-				console.log('successfully updated');
-			},
-			error: function(){
-			  alert('Something went wrong. Please try again!');
-			  window.location.reload();
-			}
-		}); //end Ajax
-	});
+			console.log(taskIds);
+
+			$.ajax({
+				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				url: '/tasks/reorder',
+				type: 'POST',
+				traditional: true,
+				data: {ids:taskIds},
+				dataType: 'json',
+				success: function(){
+					console.log('task order successfully updated');
+				},
+				error: function(){
+				alert('Something went wrong. Please try again!');
+				window.location.reload();
+				}
+			}); //end Ajax
+		} //end if
+	}); //end sortdeactivate
 	
-	$( ".sortable" ).disableSelection();
-}); //end sortable
+	$( ".sortable-tasks" ).disableSelection();
+}); //end sortable-tasks
 
 toggle = (id) => {
 	$(id).toggle();
