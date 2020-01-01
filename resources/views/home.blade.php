@@ -5,13 +5,13 @@
 <div class="home-container row">
     @include('errors')
 
-    <div class="col-sm-12 lists-container">
+    <div id="lists-container" class="col-sm-12 lists-container sortable-lists">
     
-        @foreach ($glists as $glist)
+        @foreach ($glists->sortBy('order') as $glist)
 
             @if (!$glist->archived)
 
-                <div class="list-container" id="glist-container-{{ $glist->id }}">
+                <div class="list-container" id="glist-container_{{ $glist->id }}">
                 
                     <div class="list-header">
                         
@@ -87,11 +87,11 @@
 
                     </div>
 
-                    <div class="task-container sortable">
+                    <div id="tasks-container" class="task-container sortable-tasks">
                         
                         @foreach ($glist->tasks->sortBy('order') as $task)
 
-                            <form id="task_{{ $task->id }}" class="ui-state-default" action="/tasks/{{ $task->id }}" method="POST">
+                            <form id="task_{{ $task->id }}" action="/tasks/{{ $task->id }}" method="POST">
 
                                 @method('PATCH')
                                 @csrf
