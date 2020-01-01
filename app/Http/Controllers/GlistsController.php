@@ -59,6 +59,24 @@ class GlistsController extends Controller {
 		return $glist;
 
 	}
+
+	public function order(Request $request) {
+
+        $ids = json_decode($request->ids);
+
+        foreach ($ids as $key => $value){
+
+            $attributes['order'] = $key;
+
+            $updatedGlist = Glist::where(['id' => $value])->update($attributes);
+
+          }
+
+          return response()->json([
+            'success' => true,
+            'status' => 200
+        ]);
+    }
     
     public function validateGlist() {
 
