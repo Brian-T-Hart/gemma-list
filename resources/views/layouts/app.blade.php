@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <?php 
+        if (isset($_SERVER['HTTPS'])):
+            echo 'https is set';
+        endif;
+
+        echo $_SERVER['HTTP_HOST'];
+    ?>
     <?php if ($_SERVER['HTTP_HOST'] == 'gemmalist.com'): ?>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
