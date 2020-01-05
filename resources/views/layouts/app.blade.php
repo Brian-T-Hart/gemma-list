@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <?php 
-        if (isset($_SERVER['HTTPS'])):
-            echo 'https is set';
-        endif;
-
-        echo $_SERVER['HTTP_HOST'];
-    ?>
-    <?php if ($_SERVER['HTTP_HOST'] == 'gemmalist.com'): ?>
+    <?php if ($_SERVER['HTTP_HOST'] == 'www.gemmalist.com'): ?>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145233168-3"></script>
@@ -19,8 +12,6 @@
 
         gtag('config', 'UA-145233168-3');
     </script>
-
-    <?php else: ?>
     <?php endif ?>
 
     <meta charset="utf-8">
