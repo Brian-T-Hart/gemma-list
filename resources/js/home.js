@@ -43,9 +43,9 @@ handleCheck = () => {
 
 	event.preventDefault();
 
-	var checkboxLabel = event.target.parentElement;
+	var checkboxLabel = event.target.nextElementSibling;
 
-	var taskForm = event.target.parentElement.parentElement;
+	var taskForm = event.target.parentElement;
 
 	var url = taskForm.getAttribute('action');
 
