@@ -24,10 +24,12 @@ class TasksController extends Controller
         return back();
     }
     
-    public function update(Task $task) {
+    public function update(Request $request) {
 
-        $task->complete(request()->has('completed'));
+		$attributes['title'] = $request->title;
 
+        $task = Task::where('id', $request->id)->update($attributes);
+        
         return $task;
 
     }
@@ -39,6 +41,14 @@ class TasksController extends Controller
         }])->where(['completed' => 1])->delete();
 
         return back();
+
+    }
+
+    public function completed(Task $task) {
+
+        $task->complete(request()->has('completed'));
+
+        return $task;
 
     }
 
