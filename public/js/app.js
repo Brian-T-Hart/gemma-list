@@ -36814,9 +36814,9 @@ handleCheck = function handleCheck() {
 
 	event.preventDefault();
 
-	var checkboxLabel = event.target.parentElement;
+	var checkboxLabel = event.target.nextElementSibling;
 
-	var taskForm = event.target.parentElement.parentElement;
+	var taskForm = event.target.parentElement;
 
 	var url = taskForm.getAttribute('action');
 
@@ -36847,6 +36847,57 @@ handleCheck = function handleCheck() {
 	});
 }; //end check box
 
+handleTaskEdit = function handleTaskEdit(id) {
+	$('#edit-task-form-' + id).toggle();
+	$('#task_' + id).toggle();
+};
+
+handleTaskEditCancel = function handleTaskEditCancel(id) {
+	event.preventDefault();
+	$('#task_' + id).toggle();
+	$('#edit-task-form-' + id).toggle();
+};
+
+handleTaskEditSubmit = function handleTaskEditSubmit(id) {
+
+	event.preventDefault();
+
+	var taskForm = event.target;
+
+	var data = $(taskForm).serialize();
+
+	data = data + '&id=' + id;
+	console.log('data', data);
+
+	var url = taskForm.getAttribute('action');
+	console.log('url', url);
+
+	$.ajax({
+
+		url: url,
+
+		type: 'post',
+
+		data: data,
+
+		dataType: 'json',
+
+		success: function success(_response) {
+
+			console.log('update successful', _response);
+
+			window.location.reload();
+		},
+
+		error: function error(_response) {
+
+			alert('Something went wrong. Please try again!');
+
+			window.location.reload();
+		}
+
+	});
+};
 
 // Delete a list
 handleDelete = function handleDelete(id) {

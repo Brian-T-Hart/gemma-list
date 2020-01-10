@@ -11985,8 +11985,10 @@ input {
 }
 
 label {
+  display: inline;
+  vertical-align: text-bottom;
   font-weight: 400;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0;
 }
 
 nav {
@@ -12062,6 +12064,7 @@ nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 50px;
 }
 
 .m-b-md {
