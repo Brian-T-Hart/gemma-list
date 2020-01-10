@@ -91,18 +91,32 @@
                         
                         @foreach ($glist->tasks->sortBy('order') as $task)
 
-                            <form id="task_{{ $task->id }}" action="/tasks/{{ $task->id }}" method="POST">
+                            <form id="task_{{ $task->id }}" action="/tasks/completed/{{ $task->id }}" method="POST">
 
                                 @method('PATCH')
                                 @csrf
 
                                 <input type="checkbox" name="completed" onChange="handleCheck()" {{ $task->completed ? 'checked' : '' }}>
                                 
-                                <label for="completed" class="checkbox {{ $task->completed ? 'is-completed' : '' }}">
+                                <label for="completed" class="checkbox {{ $task->completed ? 'is-completed' : '' }}" onClick="handleTaskEdit('{{ $task->id }}')">
 
                                 {{ $task->title }}
 
                                 </label>
+
+                            </form>
+
+                            <!-- edit task form -->
+                            <form action="tasks/{{ $task->id }}" class="hidden" id="edit-task-form-{{ $task->id }}" onsubmit="handleTaskEditSubmit({{ $task->id }})">
+
+                                @method('PATCH')
+                                @csrf
+
+                                <input type="text" name="title" value="{{ $task->title }}" />
+
+                                <button type="submit">save</button>
+
+                                <button id="close-task-edit-{{ $task->id }}" onClick="handleTaskEditCancel({{ $task->id }})">x</button>
 
                             </form>
 
