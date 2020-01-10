@@ -96,9 +96,9 @@
                                 @method('PATCH')
                                 @csrf
 
-                                <label for="completed" class="checkbox {{ $task->completed ? 'is-completed' : '' }}">
-
                                 <input type="checkbox" name="completed" onChange="handleCheck()" {{ $task->completed ? 'checked' : '' }}>
+                                
+                                <label for="completed" class="checkbox {{ $task->completed ? 'is-completed' : '' }}">
 
                                 {{ $task->title }}
 
