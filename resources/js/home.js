@@ -79,6 +79,60 @@ handleCheck = () => {
 	
 }//end check box
 
+handleTaskEdit = (id) => {
+	$('#edit-task-form-' + id).toggle();
+	$('#task_' + id).toggle();
+}
+
+handleTaskEditCancel = (id) => {
+	event.preventDefault();
+	$('#task_' + id).toggle();
+	$('#edit-task-form-' + id).toggle();
+}
+
+handleTaskEditSubmit = (id) => {
+
+	event.preventDefault();
+
+	const taskForm = (event.target);
+
+	var data = $(taskForm).serialize();
+
+	data = data + '&id=' + id;
+	console.log('data', data);
+
+	const url = taskForm.getAttribute('action');
+	console.log('url', url);
+
+	$.ajax({
+
+		url: url,
+
+		type: 'post',
+		
+		data: data,
+		
+		dataType: 'json',
+		
+        success: function( _response ){
+
+			console.log('update successful', _response);
+
+			window.location.reload();
+
+		},
+		
+        error: function( _response ){
+
+		  alert('Something went wrong. Please try again!');
+
+		  window.location.reload();
+
+		}
+		
+	});
+} 
+
 
 // Delete a list
 handleDelete = (id) => {
