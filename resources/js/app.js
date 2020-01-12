@@ -8,3 +8,5 @@
 require('./bootstrap');
 
 require('./home');
+
+require('./task');
