@@ -98,7 +98,7 @@
 
                                 <input type="checkbox" name="completed" onChange="handleCheck()" {{ $task->completed ? 'checked' : '' }}>
                                 
-                                <label for="completed" class="checkbox {{ $task->completed ? 'is-completed' : '' }}" onClick="handleTaskEdit('{{ $task->id }}')">
+                                <label id="task-label-{{ $task->id }}" for="completed" class="checkbox {{ $task->completed ? 'is-completed' : '' }}" onClick="handleTaskEdit('{{ $task->id }}')">
 
                                 {{ $task->title }}
 
