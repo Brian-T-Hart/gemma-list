@@ -79,37 +79,6 @@ $( function() {
 	$( ".sortable-lists" ).disableSelection();
 }); //end sortable-lists
 
-// sortable tasks
-$( function() {
-	$( ".sortable-tasks" ).sortable();
-
-	$( ".sortable-tasks" ).on( "sortdeactivate", function(event) {
-		if (event.target.id === 'tasks-container') {
-			var sortedTaskIDs = $( event.target ).sortable( "toArray" );
-			var taskIds = sortedTaskIDs.map(sortedTaskID => parseInt(sortedTaskID.split('_')[1]));
-			taskIds = JSON.stringify(taskIds);
-
-			$.ajax({
-				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-				url: '/tasks/reorder',
-				type: 'POST',
-				traditional: true,
-				data: {ids:taskIds},
-				dataType: 'json',
-				success: function(){
-					console.log('task order successfully updated');
-				},
-				error: function(){
-				alert('Something went wrong. Please try again!');
-				window.location.reload();
-				}
-			}); //end Ajax
-		} //end if
-	}); //end sortdeactivate
-	
-	$( ".sortable-tasks" ).disableSelection();
-}); //end sortable-tasks
-
 toggle = (id) => {
 	$(id).toggle();
 }
