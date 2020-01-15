@@ -87,7 +87,7 @@
 
                     </div>
 
-                    <div id="tasks-container" class="task-container sortable-tasks">
+                    <div id="task-container-{{ $glist->id }}" class="task-container sortable-tasks">
                         
                         @foreach ($glist->tasks->sortBy('order') as $task)
 
