@@ -34,7 +34,17 @@ class TasksController extends Controller
 
     }
 
-    public function destroy() {
+    // delete tasks from a specific list
+    public function destroy(Glist $glist) {
+
+        $tasks = Task::where(['glist_id' => $glist->id, 'completed' => 1])->delete();
+
+        return back();
+
+    }
+
+    // delete all completed tasks from all lists
+    public function destroyAll() {
 
         $tasks = Task::with(['Glist' => function($query) {
             $query->where(['user_id' => auth()->user()]);
