@@ -29,4 +29,5 @@ Route::post('/glists/{glist}/task', 'TasksController@store');
 Route::post('/tasks/reorder', 'TasksController@order');
 Route::patch('/tasks/completed/{task}', 'TasksController@completed');
 Route::patch('/tasks/{task}', 'TasksController@update');
-Route::delete('/tasks', 'TasksController@destroy');
+Route::delete('/tasks/delete/{glist}', 'TasksController@destroy');
+Route::delete('/tasks', 'TasksController@destroyAll');
