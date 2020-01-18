@@ -36857,39 +36857,6 @@ $(function () {
 	$(".sortable-lists").disableSelection();
 }); //end sortable-lists
 
-// sortable tasks
-$(function () {
-	$(".sortable-tasks").sortable();
-
-	$(".sortable-tasks").on("sortdeactivate", function (event) {
-		if (event.target.id === 'tasks-container') {
-			var sortedTaskIDs = $(event.target).sortable("toArray");
-			var taskIds = sortedTaskIDs.map(function (sortedTaskID) {
-				return parseInt(sortedTaskID.split('_')[1]);
-			});
-			taskIds = JSON.stringify(taskIds);
-
-			$.ajax({
-				headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-				url: '/tasks/reorder',
-				type: 'POST',
-				traditional: true,
-				data: { ids: taskIds },
-				dataType: 'json',
-				success: function success() {
-					console.log('task order successfully updated');
-				},
-				error: function error() {
-					alert('Something went wrong. Please try again!');
-					window.location.reload();
-				}
-			}); //end Ajax
-		} //end if
-	}); //end sortdeactivate
-
-	$(".sortable-tasks").disableSelection();
-}); //end sortable-tasks
-
 toggle = function toggle(id) {
 	$(id).toggle();
 };
@@ -36957,6 +36924,41 @@ handleTaskEditSubmit = function handleTaskEditSubmit(id) {
 		}
 	});
 }; //end edit task title
+
+// sortable tasks
+$(function () {
+	$(".sortable-tasks").sortable();
+
+	$(".sortable-tasks").on("sortdeactivate", function (event) {
+		console.log(event.target.id.split('-')[0]);
+
+		if (event.target.id.split('-')[0] === 'task') {
+			var sortedTaskIDs = $(event.target).sortable("toArray");
+			var taskIds = sortedTaskIDs.map(function (sortedTaskID) {
+				return parseInt(sortedTaskID.split('_')[1]);
+			});
+			taskIds = JSON.stringify(taskIds);
+
+			$.ajax({
+				headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+				url: '/tasks/reorder',
+				type: 'POST',
+				traditional: true,
+				data: { ids: taskIds },
+				dataType: 'json',
+				success: function success() {
+					console.log('task order successfully updated');
+				},
+				error: function error() {
+					alert('Something went wrong. Please try again!');
+					window.location.reload();
+				}
+			}); //end Ajax
+		} //end if
+	}); //end sortdeactivate
+
+	$(".sortable-tasks").disableSelection();
+}); //end sortable-tasks
 
 /***/ }),
 /* 37 */
