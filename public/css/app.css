@@ -11970,9 +11970,7 @@ button.btn-cancel {
   background-color: #fff;
   border: 0;
   border-radius: 3px;
-  display: inline-block;
   font-size: 16px;
-  width: 1.8rem;
   opacity: 0.9;
 }
 
@@ -12026,6 +12024,12 @@ nav {
 
 .btn-check.task-add {
   visibility: hidden;
+}
+
+@media (max-width: 575.98px) {
+  .btn-check {
+    font-size: 0.9rem;
+  }
 }
 
 .drag-icon {
