@@ -29,18 +29,24 @@
      * @param {String} simulatedType The corresponding mouse event
      */
     function simulateMouseEvent (event, simulatedType) {
-  
+      
       // Ignore multi-touch events
       if (event.originalEvent.touches.length > 1) {
         return;
       }
-      
-        event.preventDefault();
-        
-        const el = event.target;
-        if (el.classList.contains('add-task-input')) {
-          el.focus();
-        }
+
+      const el = event.target;
+
+      if (el.tagName === "INPUT") {
+        el.focus();
+        return;
+      }
+
+      if (!el.classList.contains('fa-grip-horizontal')) {
+        return;
+      }
+
+      event.preventDefault();
   
       var touch = event.originalEvent.changedTouches[0],
           simulatedEvent = document.createEvent('MouseEvents');
