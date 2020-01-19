@@ -11,7 +11,7 @@
 html, body {
   background-color: #FFF;
   box-sizing: border-box;
-  color: #222;
+  color: $text;
   font-family: 'Nunito', sans-serif;
   font-weight: 200;
   height: 100vh;
@@ -37,7 +37,7 @@ body {
   background-position: center center;
 }
 
-button.task-add, button.list-add {
+button.task-add, button.list-add, button.btn-check, button.btn-cancel {
   background-color: #fff;
   border: 0;
   border-radius: 3px;
@@ -50,15 +50,22 @@ button:hover {
   cursor: pointer;
 }
 
-input {
+input[type="text"] {
   border-radius: 5px;
   border-width: 0;
   font-size: 16px;
   padding-left: 5px;
+  width: 75%;
+
+  @media (max-width: 575.98px) {
+    width: 70%;
+  }
 }
 
 input[type="checkbox"] {
+  height: 1rem;
   vertical-align: middle;
+  width: 1rem;
 }
 
 label {
@@ -69,6 +76,30 @@ label {
 
 nav {
   z-index: 100;
+}
+
+.btn-cancel {
+  color: $text;
+  
+  @media (max-width: 575.98px) {
+    font-size: 0.9rem;
+  }
+}
+
+.btn-check {
+  color: $green;
+  &.task-add {
+    visibility: hidden;
+  }
+}
+
+.drag-icon {
+  color: #636B6F;
+  cursor: pointer;
+  font-size: 1rem;
+  position: absolute;
+  right: 0;
+  top: -0.6rem;
 }
 
 .dropdown-item {
@@ -90,6 +121,10 @@ nav {
   }
 }
 
+.glist-header {
+  position: relative;
+}
+
 .hidden {
   display: none;
 }
@@ -109,6 +144,7 @@ nav {
   border: 1px solid silver;
   border-radius: 10px;
   margin: 20px;
+  min-width: 315px;
   padding: 20px;
 
   @media (max-width: 575.98px) {
@@ -117,7 +153,7 @@ nav {
 }
 
 .list-name {
-  color: #222;
+  color: $text;
   display: inline-block;
   opacity: 0.8;
 }
@@ -175,6 +211,10 @@ nav {
 .task-container {
   max-height: 400px;
   overflow-y: auto;
+
+  @media (max-width: 575.98px) {
+    font-size: 1.1rem;
+  }
 }
 
 .title {
