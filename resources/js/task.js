@@ -26,6 +26,15 @@ handleTaskEdit = (id) => {
     $('#task_' + id).toggle();
 }
 
+handleBtnCheck = () => {
+	if (event.target.value.length > 0) {
+		event.target.nextElementSibling.style.visibility = 'visible';
+	}
+	else {
+		event.target.nextElementSibling.style.visibility = 'hidden';
+	}
+}
+
 handleTaskEditCancel = (id) => {
 	event.preventDefault();
 	$('#task_' + id).toggle();
