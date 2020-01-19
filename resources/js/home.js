@@ -49,7 +49,9 @@ handleDelete = (id) => {
 
 // sortable lists
 $( function() {
-	$( ".sortable-lists" ).sortable();
+	$( ".sortable-lists" ).sortable({
+		handle: ".fa-grip-horizontal"
+	});
 
 	$( ".sortable-lists" ).on( "sortdeactivate", function(event) {
 		if (event.target.id === 'lists-container') {
