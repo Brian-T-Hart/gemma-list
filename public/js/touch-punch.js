@@ -34,8 +34,13 @@
       if (event.originalEvent.touches.length > 1) {
         return;
       }
-  
-      event.preventDefault();
+      
+        event.preventDefault();
+        
+        const el = event.target;
+        if (el.classList.contains('add-task-input')) {
+          el.focus();
+        }
   
       var touch = event.originalEvent.changedTouches[0],
           simulatedEvent = document.createEvent('MouseEvents');

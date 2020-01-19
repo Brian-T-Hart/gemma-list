@@ -11998,10 +11998,6 @@ nav {
   z-index: 100;
 }
 
-.dropdown-menu.show {
-  opacity: 1;
-}
-
 .dropdown-item {
   background-color: #fff;
 }
@@ -12040,7 +12036,6 @@ nav {
   border: 1px solid silver;
   border-radius: 10px;
   margin: 20px;
-  opacity: 0.9;
   padding: 20px;
 }
 
