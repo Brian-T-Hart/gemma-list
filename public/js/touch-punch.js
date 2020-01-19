@@ -42,7 +42,7 @@
         return;
       }
 
-      if (!el.classList.contains('fa-grip-horizontal')) {
+      if (!el.classList.contains('fa-grip-horizontal') && !el.classList.contains('checkbox-label')) {
         return;
       }
 
