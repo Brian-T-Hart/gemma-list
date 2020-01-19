@@ -36825,7 +36825,9 @@ handleDelete = function handleDelete(id) {
 
 // sortable lists
 $(function () {
-	$(".sortable-lists").sortable();
+	$(".sortable-lists").sortable({
+		handle: ".fa-grip-horizontal"
+	});
 
 	$(".sortable-lists").on("sortdeactivate", function (event) {
 		if (event.target.id === 'lists-container') {
@@ -36891,6 +36893,14 @@ handleCheck = function handleCheck() {
 handleTaskEdit = function handleTaskEdit(id) {
 	$('#edit-task-form-' + id).toggle();
 	$('#task_' + id).toggle();
+};
+
+handleBtnCheck = function handleBtnCheck() {
+	if (event.target.value.length > 0) {
+		event.target.nextElementSibling.style.visibility = 'visible';
+	} else {
+		event.target.nextElementSibling.style.visibility = 'hidden';
+	}
 };
 
 handleTaskEditCancel = function handleTaskEditCancel(id) {
