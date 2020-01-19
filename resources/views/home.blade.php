@@ -20,10 +20,10 @@
                             <a class="glist-dropdown-btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 
                                 <h3 class="list-name mb-1">{{ $glist->name }}</h3>
-                                
-                                <span class="caret"></span>
 
                             </a>
+
+                            <span class="drag-icon" title="click to drag"><i class="fas fa-grip-horizontal"></i></span>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
@@ -75,9 +75,9 @@
 
                                 <input name="name" type="text" value="{{ $glist->name }}">
 
-                                <button type="submit">update</button>
+                                <button class="btn-check" type="submit"><i class="fas fa-check"></i></button>
 
-                                <button id="close-edit-{{ $glist->id }}">x</button>
+                                <button class="btn-cancel" id="close-edit-{{ $glist->id }}"><i class="fas fa-times"></i></button>
                                 
                             </form>
 
@@ -91,9 +91,9 @@
 
                             @csrf
 
-                            <input class="add-task-input" type="text" name="title" placeholder="Add Task" required>
+                            <input class="add-task-input" type="text" name="title" placeholder="Add Task" onInput="handleBtnCheck()" required>
 
-                            <button class="button task-add" type="submit">+</button>
+                            <button class="btn-check task-add" type="submit"><i class="fas fa-check"></i></button>
 
                         </form>
 
@@ -126,9 +126,9 @@
 
                                 <input type="text" name="title" value="{{ $task->title }}" />
 
-                                <button type="submit">save</button>
+                                <button class="btn-check" type="submit" title="update"><i class="fas fa-check"></i></button>
 
-                                <button id="close-task-edit-{{ $task->id }}" onClick="handleTaskEditCancel({{ $task->id }})">x</button>
+                                <button class="btn-cancel" id="close-task-edit-{{ $task->id }}" onClick="handleTaskEditCancel({{ $task->id }})" title="cancel"><i class="fas fa-times"></i></button>
 
                             </form>
 
