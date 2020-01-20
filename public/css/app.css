@@ -11980,7 +11980,10 @@ button,
   display: inline-block;
   font-size: 16px;
   opacity: 0.9;
-  width: 1.8rem;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 @media (max-width: 575.98px) {
@@ -12001,13 +12004,6 @@ input[type="text"] {
   border-width: 0;
   font-size: 16px;
   padding-left: 5px;
-  width: 70%;
-}
-
-@media (max-width: 498.98px) {
-  input[type="text"] {
-    width: auto;
-  }
 }
 
 input[type="checkbox"] {
@@ -12032,7 +12028,7 @@ nav {
 
 .btn-check {
   color: #008000;
-  margin: 0 5px;
+  margin: 0 2px;
 }
 
 .btn-check.task-add {
@@ -12050,15 +12046,6 @@ nav {
 
 .dropdown-item {
   background-color: #fff;
-}
-
-.edit-glist-form,
-.edit-task-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
 }
 
 .font-small {
@@ -12099,7 +12086,6 @@ nav {
   border: 1px solid silver;
   border-radius: 10px;
   margin: 20px;
-  min-width: 300px;
   padding: 20px;
 }
 
