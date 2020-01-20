@@ -11980,8 +11980,15 @@ button,
   display: inline-block;
   font-size: 16px;
   opacity: 0.9;
-  padding: 0 5px;
-  width: 1.8 rem;
+}
+
+@media (max-width: 575.98px) {
+  .task-add,
+  .list-add,
+  .btn-check,
+  .btn-cancel {
+    font-size: 1.1rem;
+  }
 }
 
 button:hover {
@@ -12022,24 +12029,12 @@ nav {
   color: #222222;
 }
 
-@media (max-width: 575.98px) {
-  .btn-cancel {
-    font-size: 0.9rem;
-  }
-}
-
 .btn-check {
   color: #008000;
 }
 
 .btn-check.task-add {
   visibility: hidden;
-}
-
-@media (max-width: 575.98px) {
-  .btn-check {
-    font-size: 0.9rem;
-  }
 }
 
 .drag-icon {
