@@ -11968,6 +11968,8 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 }
 
 .task-add,
@@ -11978,21 +11980,10 @@ button,
   border: 0;
   border-radius: 3px;
   display: inline-block;
-  font-size: 16px;
   opacity: 0.9;
+  max-width: 24px;
+  padding: 0 4px;
   text-align: center;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-@media (max-width: 575.98px) {
-  .task-add,
-  .list-add,
-  .btn-check,
-  .btn-cancel {
-    font-size: 1.1rem;
-  }
 }
 
 button:hover {
