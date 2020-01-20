@@ -11980,6 +11980,7 @@ button,
   display: inline-block;
   font-size: 16px;
   opacity: 0.9;
+  width: 1.8rem;
 }
 
 @media (max-width: 575.98px) {
@@ -12031,6 +12032,7 @@ nav {
 
 .btn-check {
   color: #008000;
+  margin: 0 5px;
 }
 
 .btn-check.task-add {
@@ -12048,6 +12050,15 @@ nav {
 
 .dropdown-item {
   background-color: #fff;
+}
+
+.edit-glist-form,
+.edit-task-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 .font-small {

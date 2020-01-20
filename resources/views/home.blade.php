@@ -66,6 +66,7 @@
                         
                         </div>
 
+                        <!-- edit glist name -->
                         <div class="edit-glist mb-2 mt-2 hidden" id="edit-glist-{{ $glist->id }}">
 
                             <form class="edit-glist-form font-small" method="POST" action="/glists/{{ $glist->id }}">
@@ -119,7 +120,7 @@
                             </form>
 
                             <!-- edit task form -->
-                            <form action="tasks/{{ $task->id }}" class="hidden" id="edit-task-form-{{ $task->id }}" onsubmit="handleTaskEditSubmit({{ $task->id }})">
+                            <form action="tasks/{{ $task->id }}" class="hidden edit-task-form" id="edit-task-form-{{ $task->id }}" onsubmit="handleTaskEditSubmit({{ $task->id }})">
 
                                 @method('PATCH')
                                 @csrf
