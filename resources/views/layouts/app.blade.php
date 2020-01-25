@@ -65,6 +65,10 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                <a class="nav-item" href="javascript:toggle('#new-list-container');" title="Create new list">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                
                                 <a class="nav-item" href="javascript:document.getElementById('delete-form').submit();" title="Delete Completed Tasks">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
@@ -113,6 +117,21 @@
                                     @endif
                                 @endforeach
                                 </div> <!-- end archived lists -->
+
+                                <!-- add new list -->
+                                <div id="new-list-container" class="hidden">
+
+                                    <form action="/glists" class="font-small" method="POST">
+
+                                        @csrf
+
+                                        <input name="name" type="text" value="{{ old('name') }}" placeholder="add a new list" required>
+                                        
+                                        <button class="button list-add" type="submit">+</button>
+
+                                    </form>
+
+                                </div> <!-- end add new list -->
 
                             </li>
                         @endguest

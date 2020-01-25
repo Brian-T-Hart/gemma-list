@@ -240,13 +240,7 @@ nav {
   overflow: auto;
 }
 
-#new-list-container.list-container {
-  background-color: transparent;
-  border-width: 0;
-  padding-top: 54px;
-
-  @media (max-width: 575.98px) {
-    padding-top: 0;
-    text-align: center;
-  }
+#new-list-container {
+  padding-top: 10px;
+  text-align: center;
 }

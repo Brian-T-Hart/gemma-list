@@ -143,21 +143,6 @@
 
         @endforeach
 
-        <!-- add new list -->
-        <div id="new-list-container" class="list-container">
-
-            <form action="/glists" class="font-small" method="POST">
-
-                @csrf
-
-                <input name="name" type="text" value="{{ old('name') }}" placeholder="add a new list" required>
-                
-                <button class="button list-add" type="submit">+</button>
-
-            </form>
-        
-        </div> <!-- end add new list -->
-
     </div>
 
 </div>
