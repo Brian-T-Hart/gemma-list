@@ -39,6 +39,9 @@
                             
                                 </form>
 
+                                <!-- import list -->
+                                <button class="dropdown-item import-glist-btn" onclick="toggle('#import-list-{{ $glist->id }}')" title="Import tasks"><i class="far fa-copy"></i> Import</button>
+
                                 <!-- delete completed tasks from glist -->
                                 <form method="POST" action="/tasks/delete/{{ $glist->id }}">
 
@@ -63,6 +66,20 @@
                             </div>
 
                             <div class="dropdown"></div>
+                            <!-- dropdown list of glists -->
+                            <div class="hidden import-list" id="import-list-{{ $glist->id }}">
+                                @foreach ($glists as $list)
+
+                                        <form method="POST" action="/glists/{{ $list->id }}/copyto/{{ $glist->id }}">
+                                                    
+                                            @csrf
+
+                                            <button class="archived-item dropdown-item pl-3" type="submit">{{ $list->name }}</button>
+                                                
+                                        </form>
+
+                                @endforeach
+                                </div> <!-- end dropdown list -->
                         
                         </div>
 
