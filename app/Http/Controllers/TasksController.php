@@ -90,6 +90,8 @@ class TasksController extends Controller
             
             $task['title'] = $item->title;
 
+            $task['order'] = $item->order;
+            
             Task::create($task);
 
         }
