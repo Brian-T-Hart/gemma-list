@@ -79,4 +79,22 @@ class TasksController extends Controller
             'status' => 200
         ]);
     }
+
+    public function copyto($listId, $glistId) {
+
+        $itemsToCopy = Task::select('title')->where(['glist_id' => $listId])->get();
+        
+        foreach ($itemsToCopy as $item) {
+
+            $task['glist_id'] = $glistId;
+            
+            $task['title'] = $item->title;
+
+            Task::create($task);
+
+        }
+
+        return back();
+    }
+
 }
