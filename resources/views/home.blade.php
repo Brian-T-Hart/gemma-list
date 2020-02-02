@@ -68,7 +68,7 @@
                             <div class="dropdown"></div>
                             <!-- dropdown list of glists -->
                             <div class="hidden import-list" id="import-list-{{ $glist->id }}">
-                                @foreach ($glists as $list)
+                                @foreach ($glists->sortBy('name') as $list)
 
                                         <form method="POST" action="/glists/{{ $list->id }}/copyto/{{ $glist->id }}">
                                                     
