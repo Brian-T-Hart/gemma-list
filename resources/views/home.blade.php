@@ -65,9 +65,9 @@
 
                             </div>
 
-                            <div class="dropdown"></div>
                             <!-- dropdown list of glists -->
-                            <div class="hidden import-list" id="import-list-{{ $glist->id }}">
+                            <div class="hidden import-list mb-1" id="import-list-{{ $glist->id }}">
+                                <div class="import-list-header pb-1 pt-1 pl-3">Import From<span class="pl-3 pr-3 pointer right" onclick="toggle('#import-list-{{ $glist->id }}')"><i class="fas fa-times"></i></span></div>
                                 @foreach ($glists->sortBy('name') as $list)
 
                                         <form method="POST" action="/glists/{{ $list->id }}/copyto/{{ $glist->id }}">

@@ -11986,7 +11986,8 @@ button,
   text-align: center;
 }
 
-button:hover {
+button:hover,
+.pointer {
   cursor: pointer;
 }
 
@@ -12068,6 +12069,14 @@ nav {
   position: relative;
 }
 
+.import-list-header {
+  background-color: #fff;
+  border-bottom: 1px solid #efefef;
+  font-size: 1.1rem;
+  font-weight: 900;
+  opacity: 0.8;
+}
+
 .is-completed {
   text-decoration: line-through;
 }
@@ -12147,6 +12156,10 @@ nav {
 
 .position-ref {
   position: relative;
+}
+
+.right {
+  float: right;
 }
 
 .task-container {
