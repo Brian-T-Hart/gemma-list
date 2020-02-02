@@ -26,6 +26,7 @@ Route::patch('/glists/{glist}', 'GlistsController@update');
 Route::patch('/glists/{glist}/archive', 'GlistsController@archive');
 
 Route::post('/glists/{glist}/task', 'TasksController@store');
+Route::post('/glists/{listId}/copyto/{glistId}', 'TasksController@copyto');
 Route::post('/tasks/reorder', 'TasksController@order');
 Route::patch('/tasks/completed/{task}', 'TasksController@completed');
 Route::patch('/tasks/{task}', 'TasksController@update');
