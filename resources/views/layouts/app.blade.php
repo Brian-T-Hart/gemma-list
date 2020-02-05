@@ -103,7 +103,7 @@
 
                                 <!-- archived lists -->
                                 <div class="hidden" id="archived-items">
-                                @foreach ($glists as $glist)
+                                @foreach ($glists->sortBy('name') as $glist)
                                     @if ($glist->archived)
 
                                         <form class="un-archive" method="POST" action="/glists/{{ $glist->id }}/archive">
