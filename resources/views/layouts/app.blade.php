@@ -65,12 +65,9 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                <!-- add list -->
                                 <a class="nav-item" href="javascript:toggle('#new-list-container');" title="Create new list">
                                     <i class="fas fa-plus"></i>
-                                </a>
-                                
-                                <a class="nav-item" href="javascript:document.getElementById('delete-form').submit();" title="Delete Completed Tasks">
-                                    <i class="far fa-trash-alt"></i>
                                 </a>
 
                                 <!-- count number of archived lists -->
@@ -79,15 +76,21 @@
                                     @if ($x->archived)
                                     <?php $glistCount += 1; ?>
                                     @endif
-                                @endforeach <!-- end count -->
-                                
+                                @endforeach <!-- end count --> 
 
                                 @if ($glistCount)
+                                <!-- view hidden lists -->
                                 <a class="nav-item" href="javascript:toggle('#archived-items');" title="View hidden lists">
                                     <i class="far fa-eye"></i>
                                 </a>
                                 @endif
 
+                                <!-- delete all completed -->
+                                <a class="nav-item" href="javascript:document.getElementById('delete-form').submit();" title="Delete Completed Tasks">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+
+                                <!-- sign out -->
                                 <a class="nav-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Logout">
                                     <i class="fas fa-sign-out-alt"></i>
                                 </a>
