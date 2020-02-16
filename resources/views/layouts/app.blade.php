@@ -80,7 +80,11 @@
 
                                 @if ($glistCount)
                                 <!-- view hidden lists -->
-                                <a class="nav-item" href="javascript:toggle('#archived-items');" title="View hidden lists">
+                                <!-- <a class="nav-item" href="javascript:toggle('#archived-items');" title="View hidden lists">
+                                    <i class="far fa-eye"></i>
+                                </a> -->
+
+                                <a class="nav-item dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="View hidden lists">
                                     <i class="far fa-eye"></i>
                                 </a>
                                 @endif
@@ -105,7 +109,7 @@
                                 </form>
 
                                 <!-- archived lists -->
-                                <div class="hidden" id="archived-items">
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="archived-items">
                                 @foreach ($glists->sortBy('name') as $glist)
                                     @if ($glist->archived)
 

@@ -31,6 +31,10 @@ a:focus, form:focus, .dropdown-item:focus {
   outline:none;
 }
 
+a.dropdown-toggle::after {
+  display: none;
+}
+
 body {
   background-image: url(https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   background-size: cover;
@@ -79,6 +83,10 @@ label {
 
 nav {
   z-index: 100;
+
+  li {
+    position: relative;
+  }
 }
 
 .btn-cancel {
@@ -192,6 +200,16 @@ nav {
 
   .navbar-toggler-icon {
     color: #fff;
+  }
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+  position: absolute;
+  width: 100%;
+
+  @media (min-width: 575.98px) {
+    left: 10%;
+    width: 80%;
   }
 }
 
