@@ -206,11 +206,6 @@ nav {
 .navbar-expand-md .navbar-nav .dropdown-menu {
   position: absolute;
   width: 100%;
-
-  @media (min-width: 575.98px) {
-    left: 10%;
-    width: 80%;
-  }
 }
 
 .nav-item {
@@ -267,6 +262,11 @@ nav {
 
 #app {
   height: 100vh;
+  overflow: auto;
+}
+
+#archived-items {
+  max-height: 75vh;
   overflow: auto;
 }
 

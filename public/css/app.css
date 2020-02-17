@@ -12150,13 +12150,6 @@ nav li {
   width: 100%;
 }
 
-@media (min-width: 575.98px) {
-  .navbar-expand-md .navbar-nav .dropdown-menu {
-    left: 10%;
-    width: 80%;
-  }
-}
-
 @media (max-width: 959.98px) {
   .nav-item {
     margin: auto;
@@ -12221,6 +12214,11 @@ nav li {
 
 #app {
   height: 100vh;
+  overflow: auto;
+}
+
+#archived-items {
+  max-height: 75vh;
   overflow: auto;
 }
 
