@@ -57,7 +57,6 @@ $( function() {
 		if (event.target.id === 'lists-container') {
 			var sortedIDs = $( event.target ).sortable( "toArray" );
 			var ids = sortedIDs.map(sortedID => parseInt(sortedID.split('_')[1]));
-			ids.pop();
 			ids = JSON.stringify(ids);
 
 			$.ajax({

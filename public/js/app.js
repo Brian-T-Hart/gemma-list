@@ -36835,7 +36835,6 @@ $(function () {
 			var ids = sortedIDs.map(function (sortedID) {
 				return parseInt(sortedID.split('_')[1]);
 			});
-			ids.pop();
 			ids = JSON.stringify(ids);
 
 			$.ajax({
