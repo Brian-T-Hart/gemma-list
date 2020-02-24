@@ -8,6 +8,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   background-color: #FFF;
   box-sizing: border-box;
@@ -24,7 +28,7 @@ a {
 }
 
 a:hover {
-  color: #fff;
+  color: #20B2AA;
 }
 
 a:focus, form:focus, .dropdown-item:focus {
@@ -186,6 +190,14 @@ nav {
   margin-bottom: 30px;
 }
 
+.navbar-brand {
+  padding: 0.32em;
+
+  &:focus {
+    border: 1px solid $lightseagreen;
+  }
+}
+
 .navbar-laravel {
   background: rgba(0,0,0,.32);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -223,6 +235,14 @@ nav {
   font-weight: 200;
   letter-spacing: .1rem;
   text-decoration: none;
+
+  &:focus {
+    border: 1px solid $lightseagreen;
+  }
+
+  &:hover {
+    color: $lightseagreen;
+  }
 }
 
 .position-ref {

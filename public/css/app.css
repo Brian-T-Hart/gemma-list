@@ -10884,6 +10884,10 @@ a.text-dark:focus {
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   background-color: #FFF;
@@ -10901,7 +10905,7 @@ a {
 }
 
 a:hover {
-  color: #fff;
+  color: #20B2AA;
 }
 
 a:focus,
@@ -11074,6 +11078,14 @@ nav li {
   margin-bottom: 30px;
 }
 
+.navbar-brand {
+  padding: 0.32em;
+}
+
+.navbar-brand:focus {
+  border: 1px solid #20B2AA;
+}
+
 .navbar-laravel {
   background: rgba(0, 0, 0, 0.32);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -11111,6 +11123,14 @@ nav li {
   font-weight: 200;
   letter-spacing: 0.1rem;
   text-decoration: none;
+}
+
+.nav-item > a:focus {
+  border: 1px solid #20B2AA;
+}
+
+.nav-item > a:hover {
+  color: #20B2AA;
 }
 
 .position-ref {
