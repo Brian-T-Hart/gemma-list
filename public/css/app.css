@@ -11126,7 +11126,7 @@ nav li {
 }
 
 .nav-item > a:focus {
-  border: 1px solid #20B2AA;
+  color: #20B2AA;
 }
 
 .nav-item > a:hover {
