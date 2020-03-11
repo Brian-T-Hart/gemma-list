@@ -8,6 +8,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/logout', 'LoginController@logout');
+
 Route::post('/glists', 'GlistsController@store');
 Route::post('/glists/reorder', 'GlistsController@order');
 Route::delete('/glists/{glist}/delete', 'GlistsController@destroy');
