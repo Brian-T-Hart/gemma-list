@@ -11,6 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js').sourceMaps()
    .copy('resources/js/touch-punch.js', 'public/js/touch-punch.js')
    .sass('resources/sass/app.scss', 'public/css');
