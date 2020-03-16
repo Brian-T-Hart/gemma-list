@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'support@gemmalist.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'gemmalist.app@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'GemmaList'),
     ],
 
