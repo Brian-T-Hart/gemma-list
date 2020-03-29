@@ -55,7 +55,7 @@
 
 		<h3>Your registered email is <span class="blue">{{$user['email']}}<span></h3>
 
-		<h3>If you have any questions you can contact us at <span class="blue">support@gemmalist.com</span></h3>
+		<h3>If you have any questions you can contact us at <span class="blue">gemmalist.app@gmail.com</span></h3>
 
 	</div>
 
