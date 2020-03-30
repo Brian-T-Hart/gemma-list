@@ -87,5 +87,5 @@ toggle = (id) => {
 scrollToMore = () => {
 	console.log("clicked to scroll");
 	var el = document.getElementById('more');
-	el.scrollIntoView();
+	el.scrollIntoView({behavior: "smooth"});
 }
