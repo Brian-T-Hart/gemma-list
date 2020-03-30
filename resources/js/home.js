@@ -83,3 +83,9 @@ $( function() {
 toggle = (id) => {
 	$(id).toggle();
 }
+
+scrollToMore = () => {
+	console.log("clicked to scroll");
+	var el = document.getElementById('more');
+	el.scrollIntoView();
+}
