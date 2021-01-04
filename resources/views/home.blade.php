@@ -59,7 +59,7 @@
 
                                     @csrf
 
-                                    <button class="dropdown-item" onclick="handleDelete({{$glist->id}})" type="submit" title="Delete list"><i class="fas fa-trash"></i> Delete List</button>
+                                    <button class="dropdown-item text-danger" onclick="handleDelete({{$glist->id}})" type="submit" title="Delete list"><i class="fas fa-trash"></i> Delete List</button>
 
                                 </form>
 
