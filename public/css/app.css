@@ -11054,7 +11054,7 @@ nav li {
 }
 
 .list-container {
-  background-color: #ccc;
+  background-color: #ebecf0;
   border: 1px solid silver;
   border-radius: 10px;
   margin: 20px;
@@ -11077,7 +11077,7 @@ nav li {
 .list-name {
   color: #222222;
   display: inline-block;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .lists-container {
