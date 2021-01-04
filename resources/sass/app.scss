@@ -144,6 +144,11 @@ nav {
   position: relative;
 }
 
+.glist-header .dropdown-menu.show {
+  left: -2px !important;
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
