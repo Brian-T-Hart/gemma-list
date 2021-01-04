@@ -25,7 +25,7 @@ handleDelete = (id) => {
 	event.preventDefault();
 	var deleteForm = event.target.parentElement;
 	var url = deleteForm.getAttribute('action');
-	var confirmed = confirm('You are about to permanently delete this list.');
+	var confirmed = confirm('You are about to permanently delete this list and it\'s associated tasks.');
 
 	if (confirmed) {
 		var el = '#glist-container_' + id;
