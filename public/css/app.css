@@ -11040,7 +11040,7 @@ nav li {
 }
 
 .home-container {
-  padding-top: 60px;
+  padding-top: 80px;
   overflow: auto;
   position: relative;
 }
@@ -11089,7 +11089,7 @@ nav li {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 }
 
 .m-b-md {
