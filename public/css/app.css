@@ -11205,3 +11205,16 @@ nav li {
   text-align: center;
 }
 
+#new-list-container input[type=text] {
+  margin-right: 3px;
+  padding: 5px 0 5px 8px;
+}
+
+#new-list-container button.list-add {
+  height: 35px;
+  max-width: 30px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  width: 30px;
+}
+

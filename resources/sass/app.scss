@@ -313,4 +313,17 @@ nav {
 #new-list-container {
   padding-top: 10px;
   text-align: center;
+
+  input[type="text"] {
+    margin-right: 3px;
+    padding: 5px 0 5px 8px;
+  }
+
+  button.list-add {
+    height: 35px;
+    max-width: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 30px;
+  }
 }
