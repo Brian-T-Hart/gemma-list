@@ -66,7 +66,7 @@
                         @else
                             <li class="nav-item">
                                 <!-- add list -->
-                                <a class="nav-item" href="javascript:toggle('#new-list-container');" title="Create new list">
+                                <a class="nav-item" href="#new-list-container" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="new-list-container" title="Create new list">
                                     <i class="fas fa-plus"></i>
                                 </a>
 
@@ -80,11 +80,8 @@
 
                                 @if ($glistCount)
                                 <!-- view hidden lists -->
-                                <!-- <a class="nav-item" href="javascript:toggle('#archived-items');" title="View hidden lists">
-                                    <i class="far fa-eye"></i>
-                                </a> -->
 
-                                <a class="nav-item dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="View hidden lists">
+                                <a class="nav-item dropdown-toggle" id="archived-lists-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="View hidden lists">
                                     <i class="far fa-eye"></i>
                                 </a>
                                 @endif
@@ -109,7 +106,7 @@
                                 </form>
 
                                 <!-- archived lists -->
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="archived-items">
+                                <div aria-labelledby="archived-lists-toggle" class="dropdown-menu" id="archived-items">
                                 @foreach ($glists->sortBy('name') as $glist)
                                     @if ($glist->archived)
 
@@ -126,7 +123,7 @@
                                 </div> <!-- end archived lists -->
 
                                 <!-- add new list -->
-                                <div id="new-list-container" class="hidden">
+                                <div class="collapse" id="new-list-container">
 
                                     <form action="/glists" class="font-small" method="POST">
 
