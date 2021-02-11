@@ -48,14 +48,14 @@
 	</header>
 
 	<div class="container">
-		
-		<h2>{{$user['name']}},</h2>
 
-		<h3>Welcome to GemmaList</h3>
+		<h2>Welcome to GemmaList</h2>
 
-		<h3>Your registered email is <span class="blue">{{$user['email']}}<span></h3>
+		<h3>Your account has been created</h3>
 
-		<h3>If you have any questions you can contact us at <span class="blue">gemmalist.app@gmail.com</span></h3>
+		<h3><a href="https://www.gemmalist.com" target="_blank">www.gemmalist.com</a></h3>
+
+		<p>If you have any questions or if you did not create this account, please contact support at <span class="blue">gemmalist.app@gmail.com</span></p>
 
 	</div>
 
