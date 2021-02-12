@@ -19,12 +19,10 @@
 	}
 
 	h2 {
-		font-family: cursive;
 		text-transform: uppercase;
 	}
 
 	h3 {
-		font-family: cursive;
 		font-weight: 200;
 	}
 
