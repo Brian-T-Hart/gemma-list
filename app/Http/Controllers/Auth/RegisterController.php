@@ -51,13 +51,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         $messages = [
-            'name.regex' => 'Invalid Character used (<, >, &).',
+            'name.alpha_dash' => 'The username may only contain letters, numbers, dashes and underscores.',
         ];
 
         return Validator::make(
             $data,
             [
-                'name' => ['required', 'string', 'max:255', 'regex:/^[^<>&]+$/'],
+                'name' => ['required', 'string', 'max:25', 'alpha_dash'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:6', 'confirmed'],
             ],
