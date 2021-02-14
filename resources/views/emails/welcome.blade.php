@@ -51,7 +51,7 @@
 
 		<h3>Your account has been created</h3>
 
-		<h3><a href="https://www.gemmalist.com" target="_blank">www.gemmalist.com</a></h3>
+		<h3><a href="https://www.gemmalist.com/login" target="_blank">www.gemmalist.com</a></h3>
 
 		<p>If you have any questions or if you did not create this account, please contact support at <span class="blue">gemmalist.app@gmail.com</span></p>
 
