@@ -13,13 +13,23 @@ class Glist extends Model
 		return $this->belongsTo(User::class);
 	  }
 	
+	public function sharedGlists()
+	  {
+		  return $this->hasMany(SharedGlist::class);
+	  }
+	
+	public function addSharedGlists($sharedGlist)
+	  {
+		$this->sharedGlists()->create($sharedGlist);
+	  }
+	
 	public function tasks()
 	  {
 		return $this->hasMany(Task::class);
-		}
+	  }
 		
 	public function addTask($task)
-		{
+	  {
 		$this->tasks()->create($task);
-		}
+	  }
 }
