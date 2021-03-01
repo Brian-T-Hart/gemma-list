@@ -97,15 +97,15 @@
                                 </a>
                                 @endif
 
-                                <!-- delete all completed -->
+                                <!-- view shared with me -->
                                 @unless (Request::is('shared'))
-                                <a class="nav-item" href="/shared" title="View Shared Lists">
+                                <a class="hidden nav-item" href="/shared" title="View Shared Lists">
                                     <i class="fas fa-user-friends"></i>
                                 </a>
 
-                                <!-- <a class="nav-item" href="javascript:document.getElementById('delete-form').submit();" title="Delete Completed Tasks">
+                                <a class="nav-item" href="javascript:document.getElementById('delete-form').submit();" title="Delete Completed Tasks">
                                     <i class="far fa-trash-alt"></i>
-                                </a> -->
+                                </a>
                                 @endunless
 
                                 <!-- sign out -->
