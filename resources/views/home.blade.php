@@ -42,6 +42,9 @@
                                 <!-- import list -->
                                 <button class="dropdown-item import-glist-btn" onclick="toggle('#import-list-{{ $glist->id }}')" title="Import tasks"><i class="far fa-copy"></i> Import Tasks From</button>
 
+                                <!-- share list -->
+                                <button class="dropdown-item hidden share-glist-btn" onclick="toggle('#share-list-{{ $glist->id }}')" title="Share list"><i class="fas fa-share"></i> Share List</button>
+
                                 <!-- delete completed tasks from glist -->
                                 <form method="POST" action="/tasks/delete/{{ $glist->id }}">
 
@@ -82,6 +85,25 @@
                                 </div> <!-- end dropdown list -->
                         
                         </div>
+
+                        <!-- share glist form -->
+                        <div class="hidden share-list mb-1" id="share-list-{{ $glist->id }}">
+
+                            <form action="/glists/{{ $glist->id }}/share" method="POST" onsubmit="handleShareList()">
+                                        
+                                @csrf
+
+                                <input autocomplete="off" name="email" placeholder="email" type="email"  required>
+
+                                <input name="id" type="hidden" value="{{$glist->id}}">
+
+                                <button class="btn-check" type="submit"><i class="fas fa-check"></i></button>
+
+                                <button class="btn-cancel" id="close-share-list-{{ $glist->id }}" onclick="toggle('#share-list-{{ $glist->id }}')"><i class="fas fa-times"></i></button>
+                            
+                            </form>
+
+                        </div> <!-- end share list -->
 
                         <!-- edit glist name -->
                         <div class="edit-glist mb-2 mt-2 hidden" id="edit-glist-{{ $glist->id }}">
