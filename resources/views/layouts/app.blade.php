@@ -67,10 +67,19 @@
                             @endunless
                         @else
                             <li class="nav-item">
+                                @unless(Route::is('home'))
+                                <!-- home -->
+                                <a class="nav-item" href="/home" title="Home">
+                                    <i class="fas fa-home"></i>
+                                </a>
+                                @endunless
+
+                                @if(Route::is('home'))
                                 <!-- add list -->
                                 <a class="nav-item" href="#new-list-container" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="new-list-container" title="Create new list">
                                     <i class="fas fa-plus"></i>
                                 </a>
+                                @endif
 
                                 <!-- count number of archived lists -->
                                 <?php $glistCount = 0 ?>
@@ -89,9 +98,15 @@
                                 @endif
 
                                 <!-- delete all completed -->
-                                <a class="nav-item" href="javascript:document.getElementById('delete-form').submit();" title="Delete Completed Tasks">
-                                    <i class="far fa-trash-alt"></i>
+                                @unless (Request::is('shared'))
+                                <a class="nav-item" href="/shared" title="View Shared Lists">
+                                    <i class="fas fa-user-friends"></i>
                                 </a>
+
+                                <!-- <a class="nav-item" href="javascript:document.getElementById('delete-form').submit();" title="Delete Completed Tasks">
+                                    <i class="far fa-trash-alt"></i>
+                                </a> -->
+                                @endunless
 
                                 <!-- sign out -->
                                 <a class="nav-item" href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Logout">
