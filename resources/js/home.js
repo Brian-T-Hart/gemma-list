@@ -47,6 +47,31 @@ handleDelete = (id) => {
 	}
 } //end delete a list
 
+handleShareList = () => {
+	event.preventDefault();
+	const shareForm = (event.target);
+	var data = $(shareForm).serialize();
+	const url = shareForm.getAttribute('action');
+	const method = shareForm.getAttribute('method');
+
+	$.ajax({
+		url: url,
+		type: method,	
+		data: data,
+		dataType: 'json',
+        success: function( _response ){
+			alert(_response.message);
+			shareForm.email.value = '';
+			toggle(`#share-list-${shareForm.id.value}`);
+			// console.log('share successful', _response);
+		},
+        error: function( _response ){
+			// console.log('share successful error', _response);
+			alert(_response.message);
+		}
+	});
+}// handleShareList
+
 // sortable lists
 $( function() {
 	$( ".sortable-lists" ).sortable({
