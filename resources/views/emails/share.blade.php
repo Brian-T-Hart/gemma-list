@@ -6,12 +6,13 @@
 
 <style>
 	header {
+		align-content: center;
 		background-color: green;
 		color: #FFF;
 		display: flex;
 		height: 100px;
 		justify-content: center;
-		align-content: center;
+		margin-bottom: 40px;
 	}
 
 	h1 {
@@ -19,6 +20,7 @@
 	}
 
 	h2 {
+		font-size: 20px;
 		text-transform: uppercase;
 	}
 
@@ -49,9 +51,9 @@
 
 		<h2>A list has been shared with you.</h2>
 
-        <p><b>The {{ $shareData->title }} list</b> was shared by <b>{{ $shareData->email }}</b>. Use the link below to access it.
+        <p>You have been invited by <b>{{ $shareData->email }}</b> to share a list on gemmalist.com. Use the confirmation link below to accept the invitation and begin using the shared list.</p>
 
-        <h3><a href="https://www.gemmalist.com/glists/share/{{ $shareData->confirm }}" target="_blank">https://www.gemmalist.com/glists/share/{{ $shareData->confirm }}</a></h3>
+        <p><a href="https://www.gemmalist.com/shared/confirm/{{ $shareData->confirm }}" target="_blank">www.gemmalist.com/shared/confirm/{{ $shareData->confirm }}</a></p>
 
 	</div>
 
