@@ -16,8 +16,9 @@ Route::delete('/glists/{glist}/delete', 'GlistsController@destroy');
 Route::patch('/glists/{glist}', 'GlistsController@update');
 Route::patch('/glists/{glist}/archive', 'GlistsController@archive');
 
-Route::post('/glists/{glist}/share', 'GlistsController@share');
-Route::get('/glists/share/{confirm}', 'GlistsController@confirm');
+Route::post('/glists/{glist}/share', 'SharedGlistController@share');
+Route::get('/shared/confirm/{confirm}', 'SharedGlistController@confirm');
+Route::get('/shared', 'SharedGlistController@index');
 
 Route::post('/glists/{glist}/task', 'TasksController@store');
 Route::post('/glists/{listId}/copyto/{glistId}', 'TasksController@copyto');
