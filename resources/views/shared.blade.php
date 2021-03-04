@@ -3,9 +3,30 @@
 @section('content')
 
 <div class="home-container row">
+
     @include('errors')
 
     <div id="lists-container" class="col-sm-12 lists-container sortable-lists">
+
+        @if (count($glists) === 0)
+
+        <div class="list-container">
+
+            <div class="list-header">
+
+                <h3>Shared Lists</h3>
+
+            </div>
+
+            <div class="font-weight-normal task-container">
+
+                You do not have any shared lists at this time. When someone shares a list with you, it will be available here.
+
+            </div>
+
+        </div>
+
+        @endif
     
         @foreach ($glists->sortBy('title') as $glist)
 
