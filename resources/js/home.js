@@ -47,12 +47,18 @@ handleDelete = (id) => {
 	}
 } //end delete a list
 
-handleShareList = () => {
+
+handleShareList = (id) => {
 	event.preventDefault();
 	const shareForm = (event.target);
 	var data = $(shareForm).serialize();
+	const formId = shareForm.getAttribute('id');
 	const url = shareForm.getAttribute('action');
 	const method = shareForm.getAttribute('method');
+
+	toggle(`#${formId} .btn-check`);
+	toggle(`#${formId} .btn-cancel`);
+	$(`#${formId} .spinner`).css('display', 'inline-block');
 
 	$.ajax({
 		url: url,
@@ -62,8 +68,10 @@ handleShareList = () => {
         success: function( _response ){
 			alert(_response.message);
 			shareForm.email.value = '';
-			toggle(`#share-list-${shareForm.id.value}`);
-			// console.log('share successful', _response);
+			toggle(`#share-list-${id}`);
+			toggle(`#${formId} .btn-check`);
+			toggle(`#${formId} .btn-cancel`);
+			$(`#${formId} .spinner`).css('display', 'none');
 		},
         error: function( _response ){
 			// console.log('share successful error', _response);
