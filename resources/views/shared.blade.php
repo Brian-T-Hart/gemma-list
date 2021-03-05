@@ -77,15 +77,15 @@
                                 </form>
 
                                 <!-- delete the list -->
-                                <!-- <form method="POST" action="/glists/{{ $glist->id }}/delete">
+                                <form method="POST" action="/shared/{{ $glist->id }}/delete">
 
                                     @method('DELETE')
 
                                     @csrf
 
-                                    <button class="dropdown-item text-danger" onclick="handleDelete({{$glist->id}})" type="submit" title="Delete list"><i class="fas fa-trash"></i> Delete List</button>
+                                    <button class="dropdown-item text-danger" onclick="handleShareLeave({{$glist->id}})" type="submit" title="Leave list"><i class="fas fa-minus-circle"></i> Leave List</button>
 
-                                </form> -->
+                                </form>
 
                             </div>
 

@@ -170,9 +170,12 @@ class SharedGlistController extends Controller {
 	}
 
 
-	// public function destroy(SharedGlist $sharedGlist) {
+	public function destroy($id) {
 
-	// }
+		$sharedGlists = SharedGlist::where([['user_id', '=', auth()->id()], ['glist_id', '=', $id]])->delete();
+
+		return $sharedGlists;
+	}
     
     // public function validate() {
 

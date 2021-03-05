@@ -48,6 +48,33 @@ handleDelete = (id) => {
 } //end delete a list
 
 
+handleShareLeave = (id) => {
+	event.preventDefault();
+	var confirmed = confirm('You are about to remove yourself from the shared list. The only way to access the list, once you are removed, is to be re-invited by the list owner. Are you sure you want to leave?');
+
+	if (confirmed) {
+		let leaveForm = event.target.parentElement;
+		let url = leaveForm.getAttribute('action');
+		let el = '#glist-container_' + id;
+		toggle(el);
+
+		$.ajax({
+			url: url,
+			type: 'post',
+			data: $(leaveForm).serialize(),
+			dataType: 'json',
+			success: function(res){
+				console.log('successfully left', res);
+			},
+			error: function(){
+			  alert('Something went wrong. Please try again!');
+			  window.location.reload();
+			}
+		});
+	}
+}
+
+
 handleShareList = (id) => {
 	event.preventDefault();
 	const shareForm = (event.target);
