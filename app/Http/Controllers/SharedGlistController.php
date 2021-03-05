@@ -92,9 +92,6 @@ class SharedGlistController extends Controller {
 
 	// }
 	
-	// public function destroy(SharedGlist $sharedGlist) {
-
-	// }
 	
 	public function share(Glist $glist, Request $request) {
 		// Check if user exists
@@ -129,8 +126,7 @@ class SharedGlistController extends Controller {
 			$shared = SharedGlist::create($attributes);
 
 			// Set up data to pass into email view
-			$shareData['email'] = $request->email;
-			$shareData['title'] = $glist->name;
+			$shareData['email'] = auth()->user()->email;
 			$shareData['confirm'] = $confirmCode;
 			$shareData = (object) $shareData;
 
@@ -172,6 +168,11 @@ class SharedGlistController extends Controller {
 		}
 
 	}
+
+
+	// public function destroy(SharedGlist $sharedGlist) {
+
+	// }
     
     // public function validate() {
 
