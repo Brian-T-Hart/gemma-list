@@ -10,3 +10,5 @@ require('./bootstrap');
 require('./home');
 
 require('./task');
+
+require('./share');
