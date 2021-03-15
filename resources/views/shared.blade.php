@@ -30,7 +30,7 @@
     
         @foreach ($glists->sortBy('title') as $glist)
 
-            @if (!$glist->shared_glists['archived'])
+            @if (!$glist->shared[0]->archived)
 
                 <div class="list-container" id="glist-container_{{ $glist->id }}">
                 
@@ -51,14 +51,14 @@
                                 <!-- <button class="dropdown-item edit-glist-btn" data-id="{{ $glist->id }}" title="Edit List Name"><i class="far fa-edit"></i> Edit List Name</button> -->
                                 
                                 <!-- hide list -->
-                                <!-- <form class="hidden-glist" method="POST" action="/glists/{{ $glist->id }}/archive">
+                                <form class="hidden-glist" method="POST" action="/shared/{{ $glist->shared[0]->id }}/archive">
 
                                     @csrf
                                     @method('PATCH')
 
                                     <button class="dropdown-item" type="submit" title="Hide List"><i class="far fa-eye-slash"></i> Hide List</button>
                             
-                                </form> -->
+                                </form>
 
                                 <!-- import list -->
                                 <!-- <button class="dropdown-item import-glist-btn" onclick="toggle('#import-list-{{ $glist->id }}')" title="Import tasks"><i class="far fa-copy"></i> Import Tasks From</button> -->
