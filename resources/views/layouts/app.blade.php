@@ -81,20 +81,38 @@
                                 </a>
                                 @endif
 
-                                <!-- count number of archived lists -->
-                                <?php $glistCount = 0 ?>
-                                @foreach ($glists as $x)
-                                    @if ($x->archived)
-                                    <?php $glistCount += 1; ?>
+                                @if(Request::is('shared'))
+                                    <!-- count number of archived lists -->
+                                    <?php $sharedCount = 0 ?>
+                                    @foreach ($glists as $y)
+                                        @if ($y->shared[0]->archived)
+                                        <?php $sharedCount += 1; ?>
+                                        @endif
+                                    @endforeach <!-- end count -->
+                                    
+                                    @if ($sharedCount)
+                                    <a class="nav-item dropdown-toggle" id="archived-lists-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="View hidden lists">
+                                        <i class="far fa-eye"></i>
+                                    </a>
                                     @endif
-                                @endforeach <!-- end count --> 
+                                @endif
 
-                                @if ($glistCount)
-                                <!-- view hidden lists -->
+                                @if (Route::is('home'))
+                                    <!-- count number of archived lists -->
+                                    <?php $glistCount = 0 ?>
+                                    @foreach ($glists as $x)
+                                        @if ($x->archived)
+                                        <?php $glistCount += 1; ?>
+                                        @endif
+                                    @endforeach <!-- end count -->
 
-                                <a class="nav-item dropdown-toggle" id="archived-lists-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="View hidden lists">
-                                    <i class="far fa-eye"></i>
-                                </a>
+                                    @if ($glistCount)
+                                    <!-- view hidden lists -->
+
+                                    <a class="nav-item dropdown-toggle" id="archived-lists-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="View hidden lists">
+                                        <i class="far fa-eye"></i>
+                                    </a>
+                                    @endif
                                 @endif
 
                                 <!-- view shared with me -->
@@ -122,6 +140,7 @@
                                     @csrf
                                 </form>
 
+                                @unless (Request::is('shared'))
                                 <!-- archived lists -->
                                 <div aria-labelledby="archived-lists-toggle" class="dropdown-menu" id="archived-items">
                                 @foreach ($glists->sortBy('name') as $glist)
@@ -138,6 +157,26 @@
                                     @endif
                                 @endforeach
                                 </div> <!-- end archived lists -->
+                                @endunless
+
+                                @if (Request::is('shared'))
+                                <!-- archived shared lists -->
+                                <div aria-labelledby="archived-lists-toggle" class="dropdown-menu" id="archived-items">
+                                @foreach ($glists->sortBy('name') as $glist)
+                                    @if ($glist->shared[0]->archived)
+
+                                        <form class="un-archive" method="POST" action="/shared/{{ $glist->shared[0]->id }}/archive">
+                                                    
+                                            @csrf
+                                            @method('PATCH')
+
+                                            <button class="archived-item dropdown-item pl-3" type="submit">{{ $glist->name }}</button>
+                                                
+                                        </form>
+                                    @endif
+                                @endforeach
+                                </div> <!-- end archived shared lists -->
+                                @endif
 
                                 <!-- add new list -->
                                 <div class="collapse" id="new-list-container">
