@@ -17,10 +17,23 @@ class SharedGlistController extends Controller {
 
 	}
 
+
+	public function archive($id) {
+
+		$shared = SharedGlist::where(['id' => $id, 'user_id' => auth()->id()])->first();
+
+		$archived = $shared->archived == 1 ? 0 : 1;
+
+		$shared->update(['archived'=>$archived]);
+
+		return back();
+
+	}
+
 	//get all glists that have been shared with user
 	public function index() {
 
-		$glists = Glist::whereHas('SharedGlists', function ($query) {
+		$glists = Glist::whereHas('shared', function ($query) {
 
 			$query->where([['user_id', auth()->id()], ['confirmed', '>', 0]]);
 
@@ -28,9 +41,9 @@ class SharedGlistController extends Controller {
 
 			$query->latest()->get();
 
-		}, 'SharedGlists' => function($query) {
+		}, 'shared' => function($query) {
 
-			$query->where([['user_id', auth()->id()], ['confirmed', '>', 0]]);
+			$query->where([['user_id', auth()->id()], ['confirmed', '>', 0]])->get();
 			
 		}])->get();
 
@@ -40,10 +53,7 @@ class SharedGlistController extends Controller {
 
 		}
 
-		// return $glists;
-
 		return view('shared', compact('glists'));
-
 
 	}//index
 
