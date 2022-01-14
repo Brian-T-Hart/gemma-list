@@ -11077,6 +11077,10 @@ nav li {
   width: 20px;
 }
 
+.notification.is-danger {
+  width: 100%;
+}
+
 @media (max-width: 991.98px) {
   .list-container {
     width: 44%;
