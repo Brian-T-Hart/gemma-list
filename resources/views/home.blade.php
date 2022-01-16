@@ -154,7 +154,7 @@
 
                             @csrf
 
-                            <input class="add-task-input" type="text" name="title" placeholder="Add Task" onInput="handleBtnCheck()" required>
+                            <input class="add-task-input" type="text" name="title" placeholder="Add Task" onInput="handleBtnCheck(event)" required>
 
                             <button class="btn-check task-add" type="submit"><i class="fas fa-check"></i></button>
 
@@ -171,7 +171,7 @@
                                 @method('PATCH')
                                 @csrf
 
-                                <input type="checkbox" name="completed" onChange="handleCheck()" {{ $task->completed ? 'checked' : '' }}>
+                                <input type="checkbox" name="completed" onChange="handleCheck(event)" {{ $task->completed ? 'checked' : '' }}>
                                 
                                 <label id="task-label-{{ $task->id }}" for="completed" class="checkbox-label {{ $task->completed ? 'is-completed' : '' }}" onClick="handleTaskEdit('{{ $task->id }}')">
 
@@ -182,7 +182,7 @@
                             </form>
 
                             <!-- edit task form -->
-                            <form action="tasks/{{ $task->id }}" class="hidden edit-task-form" id="edit-task-form-{{ $task->id }}" onsubmit="handleTaskEditSubmit({{ $task->id }})">
+                            <form action="tasks/{{ $task->id }}" class="hidden edit-task-form" id="edit-task-form-{{ $task->id }}" onsubmit="handleTaskEditSubmit(event, '{{ $task->id }}')">
 
                                 @method('PATCH')
                                 @csrf
@@ -191,7 +191,7 @@
 
                                 <button class="btn-check" type="submit" title="update"><i class="fas fa-check"></i></button>
 
-                                <button class="btn-cancel" id="close-task-edit-{{ $task->id }}" onClick="handleTaskEditCancel({{ $task->id }})" title="cancel"><i class="fas fa-times"></i></button>
+                                <button class="btn-cancel" id="close-task-edit-{{ $task->id }}" onClick="handleTaskEditCancel(event,'{{ $task->id }}')" title="cancel"><i class="fas fa-times"></i></button>
 
                             </form>
 
