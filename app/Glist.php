@@ -30,6 +30,7 @@ class Glist extends Model
 		
 	public function addTask($task)
 	  {
-		$this->tasks()->create($task);
+		$newTask = $this->tasks()->create($task);
+		return $newTask;
 	  }
 }

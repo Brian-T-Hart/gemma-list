@@ -19,9 +19,14 @@ class TasksController extends Controller
         
         $attributes = request()->validate(['title' => 'required']);
 
-        $glist->addTask($attributes);
+        $newTask = $glist->addTask($attributes);
 
-        return back();
+        // return $newTask;
+        return response()->json([
+            'success' => true,
+            'status' => 200,
+            'task' => $newTask
+        ]);
     }
     
     public function update(Request $request) {
