@@ -15,12 +15,12 @@ buildNewTask = task => {
 			<label id="task-label-${task.id}" for="completed" class="checkbox-label " onclick="handleTaskEdit('${task.id}')">${task.title}</label>
 		</form>
         
-        <form action="tasks/${task.id}" class="hidden edit-task-form ui-sortable-handle" id="edit-task-form-${task.id}" onsubmit="handleTaskEditSubmit(event, ${task.id})" style="">
+        <form action="tasks/${task.id}" class="hidden edit-task-form ui-sortable-handle" id="edit-task-form-${task.id}" onsubmit="handleTaskEditSubmit(event, '${task.id}')" style="">
             <input type="hidden" name="_method" value="PATCH">
             <input type="hidden" name="_token" value="QCNFn7YRIVyUMX7OdRNbYVPUcij7Fp3NCIIVdzWF">
             <input type="text" name="title" value="${task.title}">
             <button class="btn-check" type="submit" title="update"><i class="fas fa-check"></i></button>
-            <button class="btn-cancel" id="close-task-edit-${task.id}" onclick="handleTaskEditCancel(event,${task.id})" title="cancel"><i class="fas fa-times"></i></button>
+            <button class="btn-cancel" id="close-task-edit-${task.id}" onclick="handleTaskEditCancel(event,'${task.id}')" title="cancel"><i class="fas fa-times"></i></button>
         </form>
         `;
 
