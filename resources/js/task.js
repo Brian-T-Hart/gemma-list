@@ -27,6 +27,7 @@ buildNewTask = task => {
         `;
 
     $(`#task-container-${task.glist_id}`).prepend(html);
+    $(`#add-task-${task.glist_id} .btn-check`).css('visibility', 'hidden');
 };
 
 //handle add task
